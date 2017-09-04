@@ -1,8 +1,38 @@
+/*
+ *  HMon - MainWindow
+ *  Copyright (C) 2017   Michel Megens <dev@bietje.net>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU Lesser General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 namespace HMonServer
 {
 	#region Windows Form Designer generated code
 	public partial class MainWindow
 	{
+		protected System.Windows.Forms.Label address;
+		protected System.Windows.Forms.Label port;
+		protected System.Windows.Forms.Button connect;
+		protected System.Windows.Forms.Button exit;
+		protected System.Windows.Forms.TextBox address_data;
+		protected System.Windows.Forms.TextBox port_data;
+		protected System.Windows.Forms.RichTextBox status_data;
+		protected System.Windows.Forms.Label status;
+		protected System.Windows.Forms.Label cert;
+		protected System.Windows.Forms.Label cert_data;
+		protected System.Windows.Forms.Button cert_open;
+
 		protected void InitializeComponent()
 		{
 			this.address = new System.Windows.Forms.Label();
@@ -13,6 +43,9 @@ namespace HMonServer
 			this.port_data = new System.Windows.Forms.TextBox();
 			this.status_data = new System.Windows.Forms.RichTextBox();
 			this.status = new System.Windows.Forms.Label();
+			this.cert = new System.Windows.Forms.Label();
+			this.cert_data = new System.Windows.Forms.Label();
+			this.cert_open = new System.Windows.Forms.Button();
 			// 
 			// address
 			// 
@@ -33,7 +66,7 @@ namespace HMonServer
 			// connect
 			// 
 			this.connect.Name = "connect";
-			this.connect.Location = new System.Drawing.Point(32, 112);
+			this.connect.Location = new System.Drawing.Point(40, 128);
 			this.connect.TabIndex = 2;
 			this.connect.Size = new System.Drawing.Size(96, 23);
 			this.connect.ImeMode = System.Windows.Forms.ImeMode.Disable;
@@ -43,7 +76,7 @@ namespace HMonServer
 			// exit
 			// 
 			this.exit.Name = "exit";
-			this.exit.Location = new System.Drawing.Point(168, 112);
+			this.exit.Location = new System.Drawing.Point(160, 128);
 			this.exit.TabIndex = 3;
 			this.exit.Size = new System.Drawing.Size(96, 23);
 			this.exit.ImeMode = System.Windows.Forms.ImeMode.Disable;
@@ -78,7 +111,7 @@ namespace HMonServer
 			this.status_data.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.status_data.ZoomFactor = 1F;
 			this.status_data.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.status_data.Location = new System.Drawing.Point(24, 160);
+			this.status_data.Location = new System.Drawing.Point(24, 192);
 			this.status_data.TabIndex = 6;
 			this.status_data.Size = new System.Drawing.Size(512, 304);
 			this.status_data.ReadOnly = true;
@@ -87,15 +120,41 @@ namespace HMonServer
 			// status
 			// 
 			this.status.Name = "status";
-			this.status.Location = new System.Drawing.Point(288, 128);
+			this.status.Location = new System.Drawing.Point(40, 160);
 			this.status.Image = null;
 			this.status.TabIndex = 7;
 			this.status.Text = "Status:";
 			// 
+			// cert
+			// 
+			this.cert.Name = "cert";
+			this.cert.Location = new System.Drawing.Point(16, 96);
+			this.cert.Image = null;
+			this.cert.TabIndex = 8;
+			this.cert.Text = "SSL certificate:";
+			// 
+			// cert_data
+			// 
+			this.cert_data.Name = "cert_data";
+			this.cert_data.Location = new System.Drawing.Point(168, 96);
+			this.cert_data.Image = null;
+			this.cert_data.TabIndex = 9;
+			this.cert_data.Size = new System.Drawing.Size(232, 23);
+			this.cert_data.Text = "Open certificate..";
+			// 
+			// cert_open
+			// 
+			this.cert_open.Name = "cert_open";
+			this.cert_open.Location = new System.Drawing.Point(416, 96);
+			this.cert_open.TabIndex = 10;
+			this.cert_open.ImeMode = System.Windows.Forms.ImeMode.Disable;
+			this.cert_open.Text = "Open..";
+			this.cert_open.UseVisualStyleBackColor = true;
+			// 
 			// MainWindow
 			// 
 			this.Name = "MainWindow";
-			this.ClientSize = new System.Drawing.Size(567, 482);
+			this.ClientSize = new System.Drawing.Size(567, 517);
 			this.Controls.Add(this.address);
 			this.Controls.Add(this.port);
 			this.Controls.Add(this.connect);
@@ -104,16 +163,11 @@ namespace HMonServer
 			this.Controls.Add(this.port_data);
 			this.Controls.Add(this.status_data);
 			this.Controls.Add(this.status);
+			this.Controls.Add(this.cert);
+			this.Controls.Add(this.cert_data);
+			this.Controls.Add(this.cert_open);
 			this.Text = "MainWindow";
 		}
-		private System.Windows.Forms.Label address;
-		private System.Windows.Forms.Label port;
-		private System.Windows.Forms.Button connect;
-		private System.Windows.Forms.Button exit;
-		private System.Windows.Forms.TextBox address_data;
-		private System.Windows.Forms.TextBox port_data;
-		private System.Windows.Forms.RichTextBox status_data;
-		private System.Windows.Forms.Label status;
 	}
 	#endregion
 }

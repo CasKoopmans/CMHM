@@ -1,5 +1,5 @@
 /*
- *  HMon - Program entry
+ *  HMon - Client
  *  Copyright (C) 2017   Michel Megens <dev@bietje.net>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -17,21 +17,37 @@
  */
 
 using System;
+using System.Collections;
+using System.Text;
+using System.Net.Security;
 
 namespace HMonServer
 {
-	public class Program
+	public class Client : AbstractClient
 	{
-		public static void Main (string[] args)
+		public ClientType Type { get; set; }
+		public string Name { get; set; }
+		private char[] delims = { ' ', }; 
+
+		public Client (SslStream stream) :base(stream)
 		{
-			MainWindow.open ();
 		}
 
-		public static void DumpException(Exception e)
+		public bool IsPatient()
 		{
-			Console.WriteLine ("Crash message: " + e.Message);
-			Console.WriteLine ("Crash was caused by:" + System.Environment.NewLine);
-			Console.WriteLine (e.StackTrace);
+			return this.Type == ClientType.Patient;
+		}
+
+		public bool IsMD()
+		{
+			return this.Type == ClientType.MD;
 		}
 	}
+
+	public enum ClientType
+	{
+		Patient,
+		MD,
+	};
 }
+

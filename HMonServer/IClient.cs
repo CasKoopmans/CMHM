@@ -1,5 +1,5 @@
 /*
- *  HMon - Program entry
+ *  HMon - Client interface
  *  Copyright (C) 2017   Michel Megens <dev@bietje.net>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -17,21 +17,13 @@
  */
 
 using System;
+using System.Collections;
 
 namespace HMonServer
 {
-	public class Program
+	public interface IClient
 	{
-		public static void Main (string[] args)
-		{
-			MainWindow.open ();
-		}
-
-		public static void DumpException(Exception e)
-		{
-			Console.WriteLine ("Crash message: " + e.Message);
-			Console.WriteLine ("Crash was caused by:" + System.Environment.NewLine);
-			Console.WriteLine (e.StackTrace);
-		}
+		void Write(string data);
+		string Read();
 	}
 }
