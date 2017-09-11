@@ -1,0 +1,15 @@
+Kettler commands:
+
+* CM: naar handmatig (optellend)
+* CD: naar handmatig (optellend)
+* RS: reset
+* ID: hwid
+* PD [distance]: distance in KM
+* PT [time]: mmss
+* PP [pwr]: Set power (25-400)
+* RP: whatever
+* ST: [heartrate][rpm][snelheid in hecto][afstand in hecto][gevraagde weerstand][e in kJ][tijd in min:sec][gewonnen energy in W]
+
+baud = 9600
+parity = 1
+databits = 8 (no stopbit)

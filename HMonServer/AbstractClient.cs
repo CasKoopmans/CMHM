@@ -67,12 +67,14 @@ namespace HMonServer
 
 				if (builder.ToString ().Contains ("<EOF>"))
 					break;
-
-				Console.WriteLine (builder.ToString ());
-				Console.WriteLine (builder.ToString ().Contains ("<EOF>"));
 			}
 
 			return builder.ToString ().Replace ("<EOF>", "");
+		}
+
+		public void Close()
+		{
+			this.Reader.Close ();
 		}
 	}
 }

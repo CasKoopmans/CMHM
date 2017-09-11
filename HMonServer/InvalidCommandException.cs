@@ -1,5 +1,5 @@
 /*
- *  HMon - Program entry
+ *  HMon - Invalid command errors
  *  Copyright (C) 2017   Michel Megens <dev@bietje.net>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -20,18 +20,11 @@ using System;
 
 namespace HMonServer
 {
-	public class Program
+	public class InvalidCommandException : Exception
 	{
-		public static void Main (string[] args)
+		public InvalidCommandException (string msg) : base(msg)
 		{
-			MainWindow.Open ();
-		}
-
-		public static void DumpException(Exception e)
-		{
-			Console.WriteLine ("Crash message: " + e.Message);
-			Console.WriteLine ("Crash was caused by:" + System.Environment.NewLine);
-			Console.WriteLine (e.StackTrace);
 		}
 	}
 }
+

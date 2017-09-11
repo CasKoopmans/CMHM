@@ -25,6 +25,8 @@ using System.Net.Security;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 
+using Newtonsoft.Json;
+
 namespace HMonServer
 {
 	public class HMonServer
@@ -45,23 +47,6 @@ namespace HMonServer
 
 				return self;
 			}
-		}
-
-		public static void start()
-		{
-			HMonServer.Instance.CreateServer ();
-		}
-
-		private void CreateServer()
-		{
-			this.server = new Thread (new ThreadStart (this.Run));
-			this.server.Start ();
-		}
-
-		private void DestroyServer()
-		{
-			this.SslListener.Stop ();
-			this.server.Abort ();
 		}
 
 		private void Run()
@@ -87,17 +72,85 @@ namespace HMonServer
 		public void HandleNewClient(object raw)
 		{
 			string msg;
+			DataPacket data;
 			SslStream stream = raw as SslStream;
 			Client client = new Client (stream);
 
-			msg = client.Read ();
-			MainWindow.Instance.AppendToStatus (msg);
-			client.Write ("Message received!<EOF>");
+			while (true) {
+				try {
+					msg = client.Read ();
+					data = DataPacket.Deserialize (msg);
+
+					switch(data.CommandCode) {
+					case DataPacket.STORE:
+						break;
+
+					case DataPacket.GET:
+						break;
+
+					case DataPacket.REPLAY:
+						break;
+
+					default:
+						throw new InvalidCommandException("Command unknown");
+						break;
+					}
+
+					MainWindow.Instance.AppendToStatus ("Received a packet from patient: " + data.PatientId);
+
+					if(data.Stop) {
+						client.Close ();
+						stream.Close ();
+						return;
+					}
+
+					data.Save();
+				} catch (JsonReaderException ex) {
+					MainWindow.Instance.AppendToStatus (ex.Message);
+					client.Close ();
+					stream.Close ();
+					return;
+				} catch(InvalidCommandException ex) {
+					data = new DataPacket ();
+					data.CommandCode = DataPacket.REPLY;
+					data.Comment = ex.Message;
+					data.Stop = true;
+					client.Write (data.Serialize ());
+					client.Close ();
+					stream.Close ();
+					return;
+				}
+			}
 		}
+
+		/*
+		 * Server maintance methods
+		 * 
+		 * - Create
+		 * - Start
+		 * - Stop
+		 * - Destroy
+		 */
 
 		public static void Stop()
 		{
 			HMonServer.Instance.DestroyServer ();
+		}
+		private void CreateServer()
+		{
+			this.server = new Thread (new ThreadStart (this.Run));
+			this.server.Start ();
+		}
+
+		private void DestroyServer()
+		{
+			this.SslListener.Stop ();
+			this.server.Abort ();
+		}
+
+		public static void Start()
+		{
+			HMonServer.Instance.CreateServer ();
 		}
 	}
 }

@@ -32,6 +32,9 @@ namespace HMonServer
 		protected System.Windows.Forms.Label cert;
 		protected System.Windows.Forms.Label cert_data;
 		protected System.Windows.Forms.Button cert_open;
+		protected System.Windows.Forms.Label data_dir;
+		protected System.Windows.Forms.Label data_dir_data;
+		protected System.Windows.Forms.Button data_dir_open;
 
 		protected void InitializeComponent()
 		{
@@ -46,6 +49,9 @@ namespace HMonServer
 			this.cert = new System.Windows.Forms.Label();
 			this.cert_data = new System.Windows.Forms.Label();
 			this.cert_open = new System.Windows.Forms.Button();
+			this.data_dir = new System.Windows.Forms.Label ();
+			this.data_dir_data = new System.Windows.Forms.Label ();
+			this.data_dir_open = new System.Windows.Forms.Button ();
 			// 
 			// address
 			// 
@@ -66,7 +72,7 @@ namespace HMonServer
 			// connect
 			// 
 			this.connect.Name = "connect";
-			this.connect.Location = new System.Drawing.Point(40, 128);
+			this.connect.Location = new System.Drawing.Point(40, 190);
 			this.connect.TabIndex = 2;
 			this.connect.Size = new System.Drawing.Size(96, 23);
 			this.connect.ImeMode = System.Windows.Forms.ImeMode.Disable;
@@ -76,7 +82,7 @@ namespace HMonServer
 			// exit
 			// 
 			this.exit.Name = "exit";
-			this.exit.Location = new System.Drawing.Point(160, 128);
+			this.exit.Location = new System.Drawing.Point(160, 190);
 			this.exit.TabIndex = 3;
 			this.exit.Size = new System.Drawing.Size(96, 23);
 			this.exit.ImeMode = System.Windows.Forms.ImeMode.Disable;
@@ -111,7 +117,7 @@ namespace HMonServer
 			this.status_data.ForeColor = System.Drawing.SystemColors.WindowText;
 			this.status_data.ZoomFactor = 1F;
 			this.status_data.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.status_data.Location = new System.Drawing.Point(24, 192);
+			this.status_data.Location = new System.Drawing.Point(24, 260);
 			this.status_data.TabIndex = 6;
 			this.status_data.Size = new System.Drawing.Size(512, 304);
 			this.status_data.ReadOnly = true;
@@ -120,7 +126,7 @@ namespace HMonServer
 			// status
 			// 
 			this.status.Name = "status";
-			this.status.Location = new System.Drawing.Point(40, 160);
+			this.status.Location = new System.Drawing.Point(40, 230);
 			this.status.Image = null;
 			this.status.TabIndex = 7;
 			this.status.Text = "Status:";
@@ -150,11 +156,41 @@ namespace HMonServer
 			this.cert_open.ImeMode = System.Windows.Forms.ImeMode.Disable;
 			this.cert_open.Text = "Open..";
 			this.cert_open.UseVisualStyleBackColor = true;
+
+			//
+			// data_dir
+			//
+			this.data_dir.Name = "datadir";
+			this.data_dir.Location = new System.Drawing.Point (16, 136);
+			this.data_dir.Image = null;
+			this.data_dir.TabIndex = 8;
+			this.data_dir.Text = "Data directory";
+
+			//
+			// data_dir_data
+			//
+			this.data_dir_data.Name = "datadir_data";
+			this.data_dir_data.Location = new System.Drawing.Point (168, 136);
+			this.data_dir_data.TabIndex = 9;
+			this.data_dir_data.Image = null;
+			this.data_dir_data.Size = new System.Drawing.Size (232, 23);
+			this.data_dir_data.Text = "Open data directory..";
+
+			//
+			// data_dir_open
+			//
+			this.data_dir_open.Name = "datadir_open";
+			this.data_dir_open.Location = new System.Drawing.Point(416, 136);
+			this.data_dir_open.TabIndex = 10;
+			this.data_dir_open.ImeMode = System.Windows.Forms.ImeMode.Disable;
+			this.data_dir_open.Text = "Open..";
+			this.data_dir_open.UseVisualStyleBackColor = true;
+
 			// 
 			// MainWindow
 			// 
 			this.Name = "MainWindow";
-			this.ClientSize = new System.Drawing.Size(567, 517);
+			this.ClientSize = new System.Drawing.Size(565, 600);
 			this.Controls.Add(this.address);
 			this.Controls.Add(this.port);
 			this.Controls.Add(this.connect);
@@ -166,6 +202,9 @@ namespace HMonServer
 			this.Controls.Add(this.cert);
 			this.Controls.Add(this.cert_data);
 			this.Controls.Add(this.cert_open);
+			this.Controls.Add (this.data_dir);
+			this.Controls.Add (this.data_dir_data);
+			this.Controls.Add (this.data_dir_open);
 			this.Text = "MainWindow";
 		}
 	}

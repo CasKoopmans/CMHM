@@ -31,6 +31,7 @@ namespace HMonServer
 	{
 		public string Address { get; set; }
 		public string Certificate {get;set;}
+		public string DataDirectory { get; set; }
 		public int Port { get; set; }
 		private bool Connected;
 		private static MainWindow self;
@@ -39,6 +40,7 @@ namespace HMonServer
 		{
 			this.Connected = false;
 			this.InitializeComponent ();
+			this.data_dir_data.Text = this.DataDirectory = "/home/michel/workspace/mono/HMon/HMonServer/data";
 			this.ConnectEvents ();
 		}
 
@@ -56,6 +58,7 @@ namespace HMonServer
 			this.exit.Click += new EventHandler (this.ExitClick);
 			this.connect.Click += new EventHandler (this.ConnectClick);
 			this.cert_open.Click += new EventHandler (this.OpenCertClick);
+			this.data_dir_open.Click += new EventHandler (this.OpenDataDirClick);
 		}
 
 		private void ExitClick(object sender, EventArgs e)
@@ -69,6 +72,16 @@ namespace HMonServer
 			if (dialog.ShowDialog () == DialogResult.OK) {
 				this.cert_data.Text = dialog.FileName;
 				this.Certificate = dialog.FileName;
+			}
+		}
+
+		private void OpenDataDirClick(object sender, EventArgs e)
+		{
+			var dialog = new FolderBrowserDialog ();
+
+			if (dialog.ShowDialog () == DialogResult.OK && !string.IsNullOrWhiteSpace(dialog.SelectedPath)) {
+				this.data_dir_data.Text = dialog.SelectedPath;
+				this.DataDirectory = dialog.SelectedPath;
 			}
 		}
 
@@ -100,8 +113,15 @@ namespace HMonServer
 				return;
 			}
 
+			if (this.DataDirectory == null) {
+				MessageBox.Show ("Invalid data directory!");
+				return;
+			} else {
+				System.IO.Directory.CreateDirectory (this.DataDirectory);
+			}
+
 			this.AppendToStatus ("Starting server...");
-			HMonServer.start ();
+			HMonServer.Start ();
 			this.connect.Text = "Disconnect";
 			this.Connected = true;
 		}
@@ -112,7 +132,7 @@ namespace HMonServer
 			this.status_data.Text += text;
 		}
 
-		public static void open()
+		public static void Open()
 		{
 			Application.Run (MainWindow.Instance);
 		}

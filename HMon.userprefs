@@ -1,12 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HMonServer/Client.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HMonServer/DataPacket.cs">
     <Files>
-      <File FileName="HMonServer/MainWindow.cs" Line="1" Column="1" />
-      <File FileName="HMonServer/Program.cs" Line="1" Column="1" />
-      <File FileName="HMonServer/HMonServer.cs" Line="1" Column="1" />
-      <File FileName="HMonServer/SSLServer.cs" Line="52" Column="1" />
-      <File FileName="HMonServer/Client.cs" Line="36" Column="43" />
+      <File FileName="HMonServer/MainWindow.cs" Line="53" Column="5" />
+      <File FileName="HMonServer/Program.cs" Line="19" Column="14" />
+      <File FileName="HMonServer/HMonServer.cs" Line="23" Column="18" />
+      <File FileName="HMonServer/SSLServer.cs" Line="37" Column="4" />
+      <File FileName="HMonServer/Client.cs" Line="37" Column="4" />
+      <File FileName="HMonServer/AbstractClient.cs" Line="44" Column="1" />
+      <File FileName="HMonServer/MainWindow.Assembly.cs" Line="120" Column="63" />
+      <File FileName="HMonServer/DataPacket.cs" Line="46" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

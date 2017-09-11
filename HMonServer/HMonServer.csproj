@@ -38,6 +38,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Security" />
     <Reference Include="System.Data" />
+    <Reference Include="Newtonsoft.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b9a188c8922137c6">
+      <Private>False</Private>
+      <Package>newtonsoft-json</Package>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -49,6 +53,8 @@
     <Compile Include="AbstractClient.cs" />
     <Compile Include="IClient.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="DataPacket.cs" />
+    <Compile Include="InvalidCommandException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
