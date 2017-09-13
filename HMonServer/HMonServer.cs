@@ -24,6 +24,7 @@ using System.Net;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Threading.Tasks;
+using System.Collections.Concurrent;
 
 using Newtonsoft.Json;
 
@@ -34,9 +35,13 @@ namespace HMonServer
 		private Thread server;
 		private static HMonServer self;
 		private SSLServer SslListener;
+		private ConcurrentDictionary<int, Command> Commands;
 
 		private HMonServer()
 		{
+			this.Commands = new ConcurrentDictionary<int, Command> ();
+			this.Commands [DataPacket.STORE] = new CommandPut (MainWindow.Instance.DataDirectory);
+			this.Commands [DataPacket.GET] = new CommandGet (MainWindow.Instance.DataDirectory);
 		}
 
 		public static HMonServer Instance
@@ -72,6 +77,7 @@ namespace HMonServer
 		public void HandleNewClient(object raw)
 		{
 			string msg;
+			Command cmd;
 			DataPacket data;
 			SslStream stream = raw as SslStream;
 			Client client = new Client (stream);
@@ -80,21 +86,12 @@ namespace HMonServer
 				try {
 					msg = client.Read ();
 					data = DataPacket.Deserialize (msg);
+					cmd = this.Commands[data.CommandCode];
 
-					switch(data.CommandCode) {
-					case DataPacket.STORE:
-						break;
-
-					case DataPacket.GET:
-						break;
-
-					case DataPacket.REPLAY:
-						break;
-
-					default:
+					if(cmd == null)
 						throw new InvalidCommandException("Command unknown");
-						break;
-					}
+
+					cmd.Execute(client, data);
 
 					MainWindow.Instance.AppendToStatus ("Received a packet from patient: " + data.PatientId);
 
@@ -104,7 +101,6 @@ namespace HMonServer
 						return;
 					}
 
-					data.Save();
 				} catch (JsonReaderException ex) {
 					MainWindow.Instance.AppendToStatus (ex.Message);
 					client.Close ();

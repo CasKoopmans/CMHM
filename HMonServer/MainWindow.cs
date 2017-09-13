@@ -129,7 +129,15 @@ namespace HMonServer
 		public void AppendToStatus(string text)
 		{
 			text += System.Environment.NewLine;
-			this.status_data.Text += text;
+
+			if (this.status_data.InvokeRequired) {
+				this.status_data.BeginInvoke ((MethodInvoker)
+				                             delegate() {
+					this.status_data.Text += text;
+				});
+			} else {
+				this.status_data.Text += text;
+			}
 		}
 
 		public static void Open()

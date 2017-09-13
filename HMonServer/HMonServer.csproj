@@ -55,6 +55,10 @@
     <Compile Include="Client.cs" />
     <Compile Include="DataPacket.cs" />
     <Compile Include="InvalidCommandException.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="CommandPut.cs" />
+    <Compile Include="CommandGet.cs" />
+    <Compile Include="AbstractCommand.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

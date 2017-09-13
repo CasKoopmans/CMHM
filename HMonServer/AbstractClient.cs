@@ -28,6 +28,7 @@ namespace HMonServer
 	{
 		protected SslStream Stream { get; set; }
 		protected StreamReader Reader { get; set; }
+		protected string EndOfMessage { get { return "<EOF>"; } }
 
 		public AbstractClient (SslStream stream)
 		{
@@ -39,7 +40,7 @@ namespace HMonServer
 		{
 			byte[] buffer;
 
-			data += System.Environment.NewLine;
+			data += this.EndOfMessage;
 			buffer = Encoding.ASCII.GetBytes (data);
 			this.Stream.Write (buffer, 0, buffer.Length);
 		}

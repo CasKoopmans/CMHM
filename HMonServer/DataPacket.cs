@@ -18,6 +18,7 @@
 
 using System;
 using System.IO;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace HMonServer
@@ -50,26 +51,19 @@ namespace HMonServer
 			return JsonConvert.SerializeObject (this);
 		}
 
+		public static string SerializeMany(List<DataPacket> data)
+		{
+			return JsonConvert.SerializeObject (data);
+		}
+
 		public static DataPacket Deserialize(string json)
 		{
 			return JsonConvert.DeserializeObject<DataPacket> (json);
 		}
 
-		public void Save()
+		public override string ToString()
 		{
-			this.Save (this.Serialize ());
-		}
-
-		public void Save(string data)
-		{
-			int num;
-			string fname, dirname;
-			MainWindow win = MainWindow.Instance;
-
-			dirname = win.DataDirectory + Path.DirectorySeparatorChar + this.PatientId;
-			num = Directory.CreateDirectory (dirname).GetFiles().Length + 1;
-			fname = dirname + Path.DirectorySeparatorChar + "hmon-data-" + num + ".json";
-			File.WriteAllText (fname, data);
+			return this.Serialize ();
 		}
 	}
 }
