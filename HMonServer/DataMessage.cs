@@ -1,5 +1,5 @@
 /*
- *  HMon - Network packet
+ *  HMon - DataMessage
  *  Copyright (C) 2017   Michel Megens <dev@bietje.net>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -17,33 +17,26 @@
  */
 
 using System;
-using System.IO;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
 namespace HMonServer
 {
-	public class DataPacket
+	public class DataMessage
 	{
-		/*
-		 * Command code constants
-		 */
-		public const int STORE = 1;
-		public const int GET = 2;
-		public const int REPLAY = 3;
-		public const int REPLY = 4;
-		public const int ERROR = 5;
-		public const int STOP = 6;
+		public long TimeStamp { get; set; }
+		public string PatientId { get; set; }
+		public int Pulse {get;set;}
+		public int RPM { get; set;}
+		public int BPM { get; set;}
+		public float Speed { get; set; }
+		public float Resistance { get; set; }
+		public int Minutes { get; set;}
+		public int Seconds { get; set; }
+		public float Energy { get ; set; }
 
-		public int CommandCode { get; set; }
-		public int ErrorCode { get; set; }
-		public DataMessage Data { get; set; }
-
-		public const int EOK = 0;
-
-		public DataPacket ()
+		public DataMessage ()
 		{
-			this.ErrorCode = EOK;
 		}
 
 		public string Serialize()
@@ -51,14 +44,14 @@ namespace HMonServer
 			return JsonConvert.SerializeObject (this);
 		}
 
-		public static string SerializeMany(List<DataPacket> data)
+		public static string SerializeMany(List<DataMessage> data)
 		{
 			return JsonConvert.SerializeObject (data);
 		}
 
-		public static DataPacket Deserialize(string json)
+		public static DataMessage Deserialize(string json)
 		{
-			return JsonConvert.DeserializeObject<DataPacket> (json);
+			return JsonConvert.DeserializeObject<DataMessage> (json);
 		}
 
 		public override string ToString()

@@ -42,6 +42,9 @@ namespace HMonServer
 			this.InitializeComponent ();
 			this.data_dir_data.Text = this.DataDirectory = "/home/michel/workspace/mono/HMon/HMonServer/data";
 			this.ConnectEvents ();
+			this.FormBorderStyle = FormBorderStyle.FixedSingle;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 		}
 
 		public static MainWindow Instance

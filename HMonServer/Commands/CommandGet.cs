@@ -1,5 +1,5 @@
 /*
- *  HMon - Client
+ *  HMon - GET command
  *  Copyright (C) 2017   Michel Megens <dev@bietje.net>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -17,36 +17,27 @@
  */
 
 using System;
-using System.Collections;
-using System.Text;
-using System.Net.Security;
+using System.IO;
+using System.Collections.Generic;
 
 namespace HMonServer
 {
-	public class Client : AbstractClient
+	public class CommandGet : AbstractCommand
 	{
-		public ClientType Type { get; set; }
-		public string Name { get; set; }
+		private string DataDirectory;
 
-		public Client (SslStream stream) :base(stream)
+		public CommandGet (string directory) : base()
 		{
+			this.DataDirectory = directory + Path.DirectorySeparatorChar;
 		}
 
-		public bool IsPatient()
+		public override void Execute(IClient client, DataPacket dp)
 		{
-			return this.Type == ClientType.Patient;
-		}
+			List<DataMessage> packets;
 
-		public bool IsMD()
-		{
-			return this.Type == ClientType.MD;
+			packets = this.ReadAllDataFrom (new DirectoryInfo (this.DataDirectory + dp.Data.PatientId));
+			client.Write (DataMessage.SerializeMany(packets));
 		}
 	}
-
-	public enum ClientType
-	{
-		Patient,
-		MD,
-	};
 }
 

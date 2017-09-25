@@ -42,6 +42,8 @@ namespace HMonServer
 			this.Commands = new ConcurrentDictionary<int, Command> ();
 			this.Commands [DataPacket.STORE] = new CommandPut (MainWindow.Instance.DataDirectory);
 			this.Commands [DataPacket.GET] = new CommandGet (MainWindow.Instance.DataDirectory);
+			this.Commands [DataPacket.STOP] = new CommandStop (MainWindow.Instance.DataDirectory);
+			this.Commands [DataPacket.REPLAY] = new CommandReplay (MainWindow.Instance.DataDirectory);
 		}
 
 		public static HMonServer Instance
@@ -93,13 +95,8 @@ namespace HMonServer
 
 					cmd.Execute(client, data);
 
-					MainWindow.Instance.AppendToStatus ("Received a packet from patient: " + data.PatientId);
-
-					if(data.Stop) {
-						client.Close ();
-						stream.Close ();
-						return;
-					}
+					if(data.Data != null)
+						MainWindow.Instance.AppendToStatus ("Received a packet from patient: " + data.Data.PatientId);
 
 				} catch (JsonReaderException ex) {
 					MainWindow.Instance.AppendToStatus (ex.Message);
@@ -109,9 +106,11 @@ namespace HMonServer
 				} catch(InvalidCommandException ex) {
 					data = new DataPacket ();
 					data.CommandCode = DataPacket.REPLY;
-					data.Comment = ex.Message;
-					data.Stop = true;
 					client.Write (data.Serialize ());
+					client.Close ();
+					stream.Close ();
+					return;
+				} catch(StopRequestException ex) {
 					client.Close ();
 					stream.Close ();
 					return;

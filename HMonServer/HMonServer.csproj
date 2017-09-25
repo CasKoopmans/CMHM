@@ -34,17 +34,14 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Security" />
     <Reference Include="System.Data" />
-    <Reference Include="Newtonsoft.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b9a188c8922137c6">
-      <Private>False</Private>
-      <Package>newtonsoft-json</Package>
+    <Reference Include="Newtonsoft.Json">
+      <Package>monodevelop</Package>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MainWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="MainWindow.Assembly.cs" />
@@ -55,10 +52,18 @@
     <Compile Include="Client.cs" />
     <Compile Include="DataPacket.cs" />
     <Compile Include="InvalidCommandException.cs" />
-    <Compile Include="Command.cs" />
-    <Compile Include="CommandPut.cs" />
-    <Compile Include="CommandGet.cs" />
-    <Compile Include="AbstractCommand.cs" />
+    <Compile Include="DataMessage.cs" />
+    <Compile Include="Commands\CommandStop.cs" />
+    <Compile Include="StopRequestException.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\AbstractCommand.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Commands\CommandPut.cs" />
+    <Compile Include="Commands\CommandGet.cs" />
+    <Compile Include="Commands\CommandReplay.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Commands\" />
+  </ItemGroup>
 </Project>

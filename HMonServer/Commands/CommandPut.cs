@@ -1,5 +1,5 @@
 /*
- *  HMon - GET command
+ *  HMon - PUT command
  *  Copyright (C) 2017   Michel Megens <dev@bietje.net>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -18,39 +18,24 @@
 
 using System;
 using System.IO;
-using System.Collections.Generic;
 
 namespace HMonServer
 {
-	public class CommandGet : AbstractCommand
+	public class CommandPut : AbstractCommand
 	{
-		private string DataDirectory;
+		private string DataDirectory { set; get; }
 
-		public CommandGet (string directory) : base()
+		public CommandPut(string directory)
 		{
 			this.DataDirectory = directory + Path.DirectorySeparatorChar;
 		}
 
 		public override void Execute(IClient client, DataPacket dp)
 		{
-			StreamReader io;
-			string data = "";
-			string line;
-			List<DataPacket> packets;
-			DirectoryInfo inf;
+			string fname;
 
-			packets = new List<DataPacket> ();
-			inf = new DirectoryInfo (this.DataDirectory + dp.PatientId);
-			foreach (var file in inf.GetFiles("*.json")) {
-				io = file.OpenText ();
-				while((line = io.ReadLine()) != null) {
-					data += line;
-				}
-				packets.Add (DataPacket.Deserialize (data));
-				data = "";
-			}
-
-			client.Write (DataPacket.SerializeMany(packets));
+			fname = this.PacketToFilename (this.DataDirectory, dp);
+			File.WriteAllText (fname, dp.Data.ToString());
 		}
 	}
 }

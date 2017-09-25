@@ -1,5 +1,5 @@
 /*
- *  HMon - PUT command
+ *  HMon - Stop request received
  *  Copyright (C) 2017   Michel Megens <dev@bietje.net>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -17,25 +17,13 @@
  */
 
 using System;
-using System.IO;
 
 namespace HMonServer
 {
-	public class CommandPut : AbstractCommand
+	public class StopRequestException : Exception
 	{
-		private string DataDirectory { set; get; }
-
-		public CommandPut(string directory)
+		public StopRequestException () : base()
 		{
-			this.DataDirectory = directory + Path.DirectorySeparatorChar;
-		}
-
-		public override void Execute(IClient client, DataPacket dp)
-		{
-			string fname;
-
-			fname = this.PacketToFilename (this.DataDirectory, dp);
-			File.WriteAllText (fname, dp.ToString());
 		}
 	}
 }

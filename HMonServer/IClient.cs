@@ -25,5 +25,6 @@ namespace HMonServer
 	{
 		void Write(string data);
 		string Read();
+		void Close();
 	}
 }
