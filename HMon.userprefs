@@ -1,31 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HMonServer/DataPacket.cs">
-    <Files>
-      <File FileName="HMonServer/Commands/CommandStop.cs" Line="1" Column="1" />
-      <File FileName="HMonServer/Client.cs" Line="1" Column="1" />
-      <File FileName="HMonServer/Commands/AbstractCommand.cs" Line="1" Column="1" />
-      <File FileName="HMonServer/Commands/CommandReplay.cs" Line="1" Column="1" />
-      <File FileName="HMonServer/Commands/CommandGet.cs" Line="1" Column="1" />
-      <File FileName="HMonServer/Commands/CommandPut.cs" Line="1" Column="1" />
-      <File FileName="HMonServer/DataPacket.cs" Line="29" Column="28" />
-      <File FileName="HMonServer/DataMessage.cs" Line="1" Column="1" />
-      <File FileName="HMonServer/SSLServer.cs" Line="1" Column="1" />
-      <File FileName="HMonServer/MainWindow.cs" Line="1" Column="1" />
-      <File FileName="HMonServer/HMonServer.cs" Line="1" Column="1" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="HMonServer" expanded="True">
-            <Node name="References" expanded="True">
-              <Node name="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=c7439020c8fedf87" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

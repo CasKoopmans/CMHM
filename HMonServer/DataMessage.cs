@@ -35,6 +35,8 @@ namespace HMonServer
 		public int Seconds { get; set; }
 		public float Energy { get ; set; }
 
+		public List<string> SessionIDs { get; set; }
+
 		public DataMessage ()
 		{
 		}

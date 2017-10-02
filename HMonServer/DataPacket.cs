@@ -34,9 +34,12 @@ namespace HMonServer
 		public const int REPLY = 4;
 		public const int ERROR = 5;
 		public const int STOP = 6;
+		public const int CREATE_SESSION = 7;
+		public const int GET_SESSIONS = 8;
 
 		public int CommandCode { get; set; }
 		public int ErrorCode { get; set; }
+		public string SessionId { get; set; }
 		public DataMessage Data { get; set; }
 
 		public const int EOK = 0;

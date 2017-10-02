@@ -40,6 +40,8 @@
     <Reference Include="Newtonsoft.Json">
       <Package>monodevelop</Package>
     </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindow.cs" />
@@ -61,6 +63,8 @@
     <Compile Include="Commands\CommandPut.cs" />
     <Compile Include="Commands\CommandGet.cs" />
     <Compile Include="Commands\CommandReplay.cs" />
+    <Compile Include="Commands\CommandCreateSession.cs" />
+    <Compile Include="Commands\CommandGetSessions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
