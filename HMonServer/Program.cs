@@ -22,7 +22,8 @@ namespace HMonServer
 {
 	public class Program
 	{
-		public static void Main (string[] args)
+        [STAThread]
+        public static void Main (string[] args)
 		{
 			MainWindow.Open ();
 		}
