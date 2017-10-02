@@ -44,6 +44,8 @@ namespace HMonServer
 			this.Commands [DataPacket.GET] = new CommandGet (MainWindow.Instance.DataDirectory);
 			this.Commands [DataPacket.STOP] = new CommandStop (MainWindow.Instance.DataDirectory);
 			this.Commands [DataPacket.REPLAY] = new CommandReplay (MainWindow.Instance.DataDirectory);
+			this.Commands [DataPacket.CREATE_SESSION] = new CommandCreateSession (MainWindow.Instance.DataDirectory);
+			this.Commands [DataPacket.GET_SESSIONS] = new CommandGetSessions (MainWindow.Instance.DataDirectory);
 		}
 
 		public static HMonServer Instance
