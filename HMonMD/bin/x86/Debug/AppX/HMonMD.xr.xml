@@ -35,7 +35,6 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Width" />
       <RootProperty Name="FontFamily" />
-      <RootProperty Name="FontWeight" />
     </RootType>
     <RootType FullName="HMonMD.Pages.HomePage" />
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
@@ -59,8 +58,6 @@
     <RootType FullName="HMonMD.Pages.LoginPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
       <RootProperty Name="Children" />
-      <RootMethod Name="GetRightOf" />
-      <RootMethod Name="SetRightOf" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.SplitView">
       <RootProperty Name="Name" />
@@ -86,6 +83,12 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Frame">
       <RootProperty Name="Name" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Image">
+      <RootProperty Name="Name" />
+      <RootProperty Name="Source" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="HMonMD.Pages.MainPage" />
     <RootType FullName="WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart">

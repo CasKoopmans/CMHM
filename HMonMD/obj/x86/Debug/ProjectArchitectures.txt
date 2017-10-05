@@ -1,1 +1,1 @@
-C:\Users\miche\Documents\Projects\HMon\Client1.0\HMonMD.csproj;x86
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonMD\HMonMD.csproj;x86

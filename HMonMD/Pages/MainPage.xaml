@@ -15,7 +15,7 @@
 
         <RelativePanel>
             <Button Name="HamburgerButton" Width="50" Height="50" HorizontalAlignment="Left" FontFamily="Segoe MDL2 Assets" FontSize="20" Content="&#xE700;" Click="Hamburger_Click"/>
-            <TextBlock Name="TitleTextBlock" RelativePanel.RightOf="HamburgerButton" FontSize="25" FontWeight="Bold" Margin="10,7,0,0" x:FieldModifier="public"/>
+            <Image Name="AvansLogo" Source="/Assets/LogoAvans.png" Height="50" Margin="55,0,0,0"/>
         </RelativePanel>
 
         <SplitView Grid.Row="1" Name="Split" DisplayMode="CompactOverlay" CompactPaneLength="50" OpenPaneLength="200">
