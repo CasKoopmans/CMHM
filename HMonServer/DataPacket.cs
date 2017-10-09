@@ -37,6 +37,8 @@ namespace HMonServer
 		public const int CREATE_SESSION = 7;
 		public const int GET_SESSIONS = 8;
 
+		public const int INVALID_REQUEST = 1;
+
 		public int CommandCode { get; set; }
 		public int ErrorCode { get; set; }
 		public string SessionId { get; set; }

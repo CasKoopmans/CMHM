@@ -102,17 +102,18 @@ namespace HMonServer
 
 				} catch (JsonReaderException ex) {
 					MainWindow.Instance.AppendToStatus (ex.Message);
-					client.Close ();
-					stream.Close ();
-					return;
-				} catch(InvalidCommandException ex) {
+					DataPacket dp = new DataPacket ();
+					dp.CommandCode = DataPacket.ERROR;
+					dp.ErrorCode = DataPacket.INVALID_REQUEST;
+					client.Write (dp.Serialize());
+					continue;
+				} catch(InvalidCommandException) {
 					data = new DataPacket ();
-					data.CommandCode = DataPacket.REPLY;
+					data.CommandCode = DataPacket.ERROR;
+					data.ErrorCode = DataPacket.INVALID_REQUEST;
 					client.Write (data.Serialize ());
-					client.Close ();
-					stream.Close ();
-					return;
-				} catch(StopRequestException ex) {
+					continue;
+				} catch(StopRequestException) {
 					client.Close ();
 					stream.Close ();
 					return;
