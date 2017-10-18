@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json;
 
 namespace HMonServer
 {
-	public class CommandGetSessions : AbstractCommand
+    public class CommandGetSessions : AbstractCommand
 	{
 		public string DataDirectory { get; set; }
 
