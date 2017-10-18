@@ -21,7 +21,7 @@ namespace HMonMD
 
         public static void Connect(String server, int port)
         {
-                
+            SslSocketFactory.createTcpClient(server, port);
         }
     }
 }

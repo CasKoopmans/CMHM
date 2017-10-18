@@ -205,7 +205,7 @@ namespace HMonServer
 			this.Controls.Add (this.data_dir);
 			this.Controls.Add (this.data_dir_data);
 			this.Controls.Add (this.data_dir_open);
-			this.Text = "MainWindow";
+			this.Text = "HMonServer";
 		}
 	}
 	#endregion

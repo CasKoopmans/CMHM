@@ -22927,12 +22927,12 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\Users\\miche\\Documents\\Projects\\HMon\\Client1.0\\HMonMD.csproj",
+      "projectUniqueName": "C:\\Users\\miche\\Documents\\Projects\\HMon\\HMonMD\\HMonMD.csproj",
       "projectName": "HMonMD",
-      "projectPath": "C:\\Users\\miche\\Documents\\Projects\\HMon\\Client1.0\\HMonMD.csproj",
-      "projectJsonPath": "C:\\Users\\miche\\Documents\\Projects\\HMon\\Client1.0\\project.json",
+      "projectPath": "C:\\Users\\miche\\Documents\\Projects\\HMon\\HMonMD\\HMonMD.csproj",
+      "projectJsonPath": "C:\\Users\\miche\\Documents\\Projects\\HMon\\HMonMD\\project.json",
       "packagesPath": "C:\\Users\\miche\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\miche\\Documents\\Projects\\HMon\\Client1.0\\obj\\",
+      "outputPath": "C:\\Users\\miche\\Documents\\Projects\\HMon\\HMonMD\\obj\\",
       "projectStyle": "ProjectJson",
       "configFilePaths": [
         "C:\\Users\\miche\\AppData\\Roaming\\NuGet\\NuGet.Config",

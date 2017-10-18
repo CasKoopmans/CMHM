@@ -53,9 +53,7 @@ namespace HMonServer
 			stream = new SslStream (client.GetStream(), false);
 
 			try {
-				stream.AuthenticateAsServer(this.cert, false, SslProtocols.Ssl3, true);
-				stream.WriteTimeout = 5000;
-				stream.ReadTimeout = 5000;
+				stream.AuthenticateAsServer(this.cert, false, SslProtocols.Default, false);
 			} catch(AuthenticationException e) {
 				MainWindow.Instance.AppendToStatus ("Could not authenticate client!");
 				Program.DumpException (e);

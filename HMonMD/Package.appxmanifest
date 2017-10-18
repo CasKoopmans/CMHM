@@ -3,7 +3,7 @@
   <Identity Name="87d4114e-1e32-407d-82fd-6cb07ef936b7" Publisher="CN=Cas" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="87d4114e-1e32-407d-82fd-6cb07ef936b7" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Client1.0</DisplayName>
+    <DisplayName>HMonMD</DisplayName>
     <PublisherDisplayName>Cas</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>

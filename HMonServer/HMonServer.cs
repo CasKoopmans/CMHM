@@ -74,6 +74,7 @@ namespace HMonServer
 
 			while (true) {
 				stream = SslListener.AuthenticateClient (SslListener.AcceptClient ());
+                MainWindow.Instance.AppendToStatus("Client connect..");
 				new Thread (HandleNewClient).Start (stream);
 			}
 		}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -43,6 +44,7 @@ namespace HMonMD.Pages
             try {
                 Client.Connect(Hostname.Text, Int32.Parse(Portnumber.Text));
             } catch(Exception e) {
+                Debug.WriteLine(e.Message);
                 return false;
             }
             return true;
