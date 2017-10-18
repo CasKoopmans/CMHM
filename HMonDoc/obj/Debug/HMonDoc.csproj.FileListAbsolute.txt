@@ -21,3 +21,31 @@ C:\Users\miche\Documents\Projects\HMon\HMonDoc\bin\Debug\DynamicDataDisplay.Maps
 C:\Users\miche\Documents\Projects\HMon\HMonDoc\bin\Debug\DynamicDataDisplay.Markers.dll
 C:\Users\miche\Documents\Projects\HMon\HMonDoc\bin\Debug\DynamicDataDisplay.Markers2.dll
 C:\Users\miche\Documents\Projects\HMon\HMonDoc\bin\Debug\Parser.dll
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\HMonDoc.exe.config
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\HMonDoc.exe
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\HMonDoc.pdb
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\HMonDoc.csprojResolveAssemblyReference.cache
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\LoginWindow.g.cs
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\MainWindow.g.cs
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\App.g.cs
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\HMonDoc_MarkupCompile.cache
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\HMonDoc_MarkupCompile.lref
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\HMonDoc.exe
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\HMonDoc.pdb
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\DynamicDataDisplay.dll
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\DynamicDataDisplay.Maps.dll
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\DynamicDataDisplay.Markers.dll
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\DynamicDataDisplay.Markers2.dll
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\Parser.dll
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\LoginWindow.baml
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\MainWindow.baml
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\HMonDoc.g.resources
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\HMonDoc.Properties.Resources.resources
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\obj\Debug\HMonDoc.csproj.GenerateResource.Cache
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\LiveCharts.dll
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\LiveCharts.pdb
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\LiveCharts.xml
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-da6dfa08f50d58990276c4f74814512dc68ac01c\HMonDoc\bin\Debug\LiveCharts.Wpf.xml
