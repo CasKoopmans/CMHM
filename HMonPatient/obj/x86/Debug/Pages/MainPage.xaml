@@ -13,8 +13,8 @@
         </Grid.RowDefinitions>
 
         <RelativePanel>
-            <Button x:ConnectionId='6' Name="HamburgerButton" Width="50" Height="50" HorizontalAlignment="Left" FontFamily="Segoe MDL2 Assets" FontSize="20" Content="&#xE700;"                              />
-            <Image x:ConnectionId='7' Name="AvansLogo" Source="/Assets/LogoAvans.png" Height="50" Margin="55,0,0,0"/>
+            <Button x:ConnectionId='7' Name="HamburgerButton" Width="50" Height="50" HorizontalAlignment="Left" FontFamily="Segoe MDL2 Assets" FontSize="20" Content="&#xE700;"                              />
+            <Image x:ConnectionId='8' Name="AvansLogo" Source="/Assets/LogoAvans.png" Height="50" Margin="55,0,0,0"/>
         </RelativePanel>
 
         <SplitView x:ConnectionId='1' Grid.Row="1" Name="Split" DisplayMode="CompactOverlay" CompactPaneLength="50" OpenPaneLength="200">
@@ -32,11 +32,17 @@
                             <TextBlock Text="Session" FontSize="20"/>
                         </StackPanel>
                     </ListBoxItem>
+                    <ListBoxItem x:ConnectionId='5' Name="TestPage">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Width="50" FontFamily="Segoe MDL2 Assets" FontSize="28" Text="&#xE08F;"/>
+                            <TextBlock Text="Test" FontSize="20"/>
+                        </StackPanel>
+                    </ListBoxItem>
                 </ListBox>
             </SplitView.Pane>
 
             <SplitView.Content>
-                <Frame x:ConnectionId='5' Name="ContentFrame" x:FieldModifier="public"></Frame>
+                <Frame x:ConnectionId='6' Name="ContentFrame" x:FieldModifier="public"></Frame>
             </SplitView.Content>
 
         </SplitView>

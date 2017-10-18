@@ -32,6 +32,12 @@
                             <TextBlock Text="Session" FontSize="20"/>
                         </StackPanel>
                     </ListBoxItem>
+                    <ListBoxItem Name="TestPage">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Width="50" FontFamily="Segoe MDL2 Assets" FontSize="28" Text="&#xE08F;"/>
+                            <TextBlock Text="Test" FontSize="20"/>
+                        </StackPanel>
+                    </ListBoxItem>
                 </ListBox>
             </SplitView.Pane>
 

@@ -10,13 +10,13 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>6153ca8e-ca40-46d6-bd09-a099526015d5</PackageIdentityName>
     <PackageIdentityPublisher>CN=Cas</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>F3A7E8BBC61D17D1F8950795FDE33539C0F46CA2F3711EBFE54FC109890F86A0</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>09AE955D0E6379B3EEEEA1EBB5A6393A39337F15065CB1B0C41E4C7628C2C47B</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>6153ca8e-ca40-46d6-bd09-a099526015d5_1.0.0.0_x86__1ybn2k3t2brht</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>6153ca8e-ca40-46d6-bd09-a099526015d5_1ybn2k3t2brht!App</RegisteredUserModeAppID>
     <RegisteredPackageID>6153ca8e-ca40-46d6-bd09-a099526015d5</RegisteredPackageID>
@@ -25,16 +25,16 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-10-05T10:42:38.484</Modified>
+      <Modified>2017-10-18T09:36:12.983</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\bin\x86\Debug\HMonPatient.exe">
+    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\bin\x86\Debug\HMonPatient.exe">
       <PackagePath>entrypoint\HMonPatient.exe</PackagePath>
-      <Modified>2017-10-05T10:42:37.890</Modified>
+      <Modified>2017-10-18T09:36:12.682</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cas\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -99,6 +99,10 @@
     <AppxPackagedFile Include="C:\Users\Cas\.nuget\packages\runtime.any.System.Private.DataContractSerialization\4.1.0\lib\netcore50\System.Private.DataContractSerialization.dll">
       <PackagePath>System.Private.DataContractSerialization.dll</PackagePath>
       <Modified>2016-02-21T20:35:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Cas\.nuget\packages\StaMa.StateMachine\2.3.1.7\lib\portable-net40+sl50+win+wpa81+wp80\StaMa.dll">
+      <PackagePath>StaMa.dll</PackagePath>
+      <Modified>2016-04-22T21:43:22.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cas\.nuget\packages\System.AppContext\4.0.0\lib\netcore50\System.AppContext.dll">
       <PackagePath>System.AppContext.dll</PackagePath>
@@ -448,63 +452,64 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-07-22T21:11:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\Assets\LogoAvans.png">
+    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\Assets\LogoAvans.png">
       <PackagePath>Assets\LogoAvans.png</PackagePath>
       <Modified>2017-10-05T10:42:21.201</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2015-09-20T16:30:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T16:30:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T16:30:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T16:30:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T16:30:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T16:30:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-09-20T16:30:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2017-10-05T10:34:47.102</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\bin\x86\Debug\HMonPatient.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\bin\x86\Debug\HMonPatient.xr.xml">
       <PackagePath>HMonPatient.xr.xml</PackagePath>
-      <Modified>2017-10-05T10:42:00.495</Modified>
+      <Modified>2017-10-09T12:24:00.903</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2016-11-11T14:23:41.181</Modified>
+      <Modified>2017-10-05T12:52:09.794</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2017-10-05T10:42:38.266</Modified>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-10-18T09:35:18.629</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon\HMonPatient\bin\x86\Debug\Core\HMonPatient.exe">
+    <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\bin\x86\Debug\Core\HMonPatient.exe">
       <PackagePath>HMonPatient.exe</PackagePath>
-      <Modified>2017-10-05T10:42:38.484</Modified>
+      <Modified>2017-10-18T09:36:12.980</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

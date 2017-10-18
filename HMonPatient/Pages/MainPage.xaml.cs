@@ -35,6 +35,7 @@ namespace HMonPatient.Pages
         {
             if (Home.IsSelected) ContentFrame.Navigate(typeof(HomePage), this);
             else if (Session.IsSelected) ContentFrame.Navigate(typeof(SessionPage), this);
+            else if (TestPage.IsSelected) ContentFrame.Navigate(typeof(TestPage), this);
         }
     }
 }

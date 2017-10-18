@@ -132,19 +132,21 @@ namespace HMonPatient.HMonPatient_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[5];
+            _typeNameTable = new string[6];
             _typeNameTable[0] = "HMonPatient.Pages.HomePage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "HMonPatient.Pages.MainPage";
             _typeNameTable[4] = "HMonPatient.Pages.SessionPage";
+            _typeNameTable[5] = "HMonPatient.Pages.TestPage";
 
-            _typeTable = new global::System.Type[5];
+            _typeTable = new global::System.Type[6];
             _typeTable[0] = typeof(global::HMonPatient.Pages.HomePage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::HMonPatient.Pages.MainPage);
             _typeTable[4] = typeof(global::HMonPatient.Pages.SessionPage);
+            _typeTable[5] = typeof(global::HMonPatient.Pages.TestPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -182,6 +184,7 @@ namespace HMonPatient.HMonPatient_XamlTypeInfo
         private object Activate_0_HomePage() { return new global::HMonPatient.Pages.HomePage(); }
         private object Activate_3_MainPage() { return new global::HMonPatient.Pages.MainPage(); }
         private object Activate_4_SessionPage() { return new global::HMonPatient.Pages.SessionPage(); }
+        private object Activate_5_TestPage() { return new global::HMonPatient.Pages.TestPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -218,6 +221,13 @@ namespace HMonPatient.HMonPatient_XamlTypeInfo
             case 4:   //  HMonPatient.Pages.SessionPage
                 userType = new global::HMonPatient.HMonPatient_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_4_SessionPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 5:   //  HMonPatient.Pages.TestPage
+                userType = new global::HMonPatient.HMonPatient_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_5_TestPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
