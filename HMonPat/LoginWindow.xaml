@@ -1,0 +1,44 @@
+﻿<Window x:Class="HMonPat.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:conv="clr-namespace:HMonPat.Converters"
+        xmlns:local="clr-namespace:HMonPat"
+        mc:Ignorable="d"
+        Title="Login" Height="350" Width="525">
+    <Window.Resources>
+        <conv:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="125"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Visibility="{Binding IsLoggedIn,Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Host name:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+            <TextBox Name="Hostname" Width="150" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2"/>
+
+            <TextBlock Text="Port number:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
+            <TextBox Name="Portnumber" Width="150" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2"/>
+
+        </Grid>
+        <Button Name="LoginButton" Width="150" Height="50" HorizontalAlignment="Center" FontSize="20" Content="Login" Click="LoginButton_Click" Grid.Row="2"/>
+        <TextBlock Name="ErrorMessage" HorizontalAlignment="Center" Grid.Row="3" FontSize="12" Foreground="Red" Margin="5,5,5,5"/>
+    </Grid>
+</Window>

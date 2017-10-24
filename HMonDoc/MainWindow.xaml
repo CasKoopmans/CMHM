@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HMonDoc"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="810" Width="1200" ResizeMode="NoResize">
+        Title="Doctor Application" Height="810" Width="1200" ResizeMode="NoResize">
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="767" VerticalAlignment="Top" Width="1180">
             <TabItem Header="Home">
@@ -36,6 +36,7 @@
                     <TextBlock Name="Sex" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center"/>
                     <TextBlock Name="HomeTown" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center"/>
                     <TextBlock Name="ID" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center"/>
+                    <Button Content="text" Width="200" Height="150" Click="Button_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Session">

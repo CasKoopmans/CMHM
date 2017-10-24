@@ -44,7 +44,6 @@ namespace HMonDoc
                 tstamps[i] = time.ToString();
             }
             
-
             pulse = new ChartValues<int>{ 100, 103, 105, 108, 115, 116, 120, 130, 132 };
             rotations = new ChartValues<int> { 70, 68, 70, 72, 79, 78, 73, 74, 75 };
             speed = new ChartValues<int> { 30, 30, 30, 30, 30, 30, 30, 30, 30 };

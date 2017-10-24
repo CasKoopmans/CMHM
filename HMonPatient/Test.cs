@@ -26,9 +26,7 @@ namespace HMonPatient
         {
             Debug.WriteLine("Warmup");
             Session.setStateText("Warmup");
-            Session.setResistance(75);
-            EmergencyStop();
-            
+            Session.setResistance(85);          
             await Task.Delay(120000);
             Fase1();
         }

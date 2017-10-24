@@ -1,0 +1,65 @@
+﻿<Window x:Class="HMonPat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HMonPat"
+        mc:Ignorable="d"
+        Title="Patient Application" Height="810" Width="1200" ResizeMode="NoResize">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="767" VerticalAlignment="Top" Width="1180">
+            <TabItem Header="Home">
+                <Grid Margin="-0,-0,-0,-0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="25"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Name:" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"/>
+                    <TextBlock Text="Age:" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
+                    <TextBlock Text="Sex:" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"/>
+                    <TextBlock Text="Weight:" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center"/>
+                    <TextBlock Text="Home town:" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center"/>
+                    <TextBlock Text="ID:" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center"/>
+
+                    <TextBlock Name="Name" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center"/>
+                    <TextBlock Name="Age" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center"/>
+                    <TextBlock Name="Sex" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center"/>
+                    <TextBlock Name="Weight" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center"/>
+                    <TextBlock Name="HomeTown" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center"/>
+                    <TextBlock Name="ID" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Session">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="Data" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Margin="5,5,5,5"/>
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Button Name="ConnectButton" Height="95" Width="190" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Content="Start" Click="ConnectButton_Click"/>
+                        <TextBlock Name="StateText" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,50,10" Grid.Row="0"/>
+                        <TextBlock Name="Feedback" FontSize="34" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,50,10" Grid.Row="1"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

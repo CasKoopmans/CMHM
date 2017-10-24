@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-10-18T09:36:12.983</Modified>
+      <Modified>2017-10-18T12:21:51.740</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\bin\x86\Debug\HMonPatient.exe">
       <PackagePath>entrypoint\HMonPatient.exe</PackagePath>
-      <Modified>2017-10-18T09:36:12.682</Modified>
+      <Modified>2017-10-18T12:21:51.476</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cas\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -505,11 +505,11 @@
     <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-10-18T09:35:18.629</Modified>
+      <Modified>2017-10-18T12:15:39.353</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPatient\bin\x86\Debug\Core\HMonPatient.exe">
       <PackagePath>HMonPatient.exe</PackagePath>
-      <Modified>2017-10-18T09:36:12.980</Modified>
+      <Modified>2017-10-18T12:21:51.736</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
