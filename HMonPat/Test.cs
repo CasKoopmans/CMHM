@@ -13,7 +13,7 @@ namespace HMonPat
         public Test(MainWindow session)
         {
             Session = session;
-            Fase1();
+            Warmup();
         }
 
         private async void Warmup()

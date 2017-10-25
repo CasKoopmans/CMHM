@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Windows;
@@ -48,7 +49,7 @@ namespace HMonPat
 
             //client = SslConnectionFactory.CreateTcpClient(Hostname.Text, Int32.Parse(Portnumber.Text));
             //stream = SslConnectionFactory.CreateFromClient(client);
-            //this.IsLoggedIn = true;
+            this.IsLoggedIn = true;
             new MainWindow(null, null).Show();
             this.Close();
         }

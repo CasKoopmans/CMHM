@@ -59,9 +59,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="CreatePatientWindow.xaml.cs">
+      <DependentUpon>CreatePatientWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Measurement.cs" />
     <Compile Include="SslConnectionFactory.cs" />
     <Compile Include="Test.cs" />
+    <Page Include="CreatePatientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

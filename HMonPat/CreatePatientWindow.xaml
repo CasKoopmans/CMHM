@@ -1,0 +1,54 @@
+﻿<Window x:Class="HMonPat.CreatePatientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:conv="clr-namespace:HMonPat.Converters"
+        xmlns:local="clr-namespace:HMonPat"
+        mc:Ignorable="d"
+        Title="Login" Height="400" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Patient name:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+            <TextBox Name="PatientName" Width="150" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2"/>
+
+            <TextBlock Text="Patient age:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
+            <TextBox Name="PatientAge" Width="150" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2"/>
+
+            <TextBlock Text="Patient weight:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+            <TextBox Name="PatientWeight" Width="150" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="2"/>
+
+            <TextBlock Text="Patient id:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"/>
+            <TextBox Name="PatientID" Width="150" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="4" Grid.Column="2"/>
+
+            <TextBlock Text="Sex:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1"/>
+            <ComboBox Name="GenderSelect" HorizontalAlignment="Left" Width="75" Height="25" Grid.Row="5" Grid.Column="2">
+                <ComboBoxItem Name="f">Female</ComboBoxItem>
+                <ComboBoxItem Name="m">Male</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Button Name="CreatePatientButton" Width="150" Height="50" HorizontalAlignment="Center" FontSize="20" Content="Create patient" Click="CreatePatient_Click" Grid.Row="2"/>
+        <TextBlock Name="ErrorMessage" HorizontalAlignment="Center" Grid.Row="3" FontSize="12" Foreground="Red" Margin="5,5,5,5"/>
+    </Grid>
+</Window>

@@ -124,12 +124,11 @@ namespace HMonPat
         public async void askData()
         {
             _serialPort.WriteLine("ST");
-            await Task.Delay(600);
             string response = "";
             try
             {
                 response = _serialPort.ReadLine();
-
+                Console.WriteLine(response);
                 Read(response);
             }
             catch (Exception ex) { }
@@ -153,8 +152,10 @@ namespace HMonPat
         public async void setResistance(int resistance)
         {
             _serialPort.WriteLine("CM");
+            _serialPort.ReadLine();
             await Task.Delay(400);
             _serialPort.WriteLine("PW " + resistance.ToString());
+            _serialPort.ReadLine();
         }
 
         public void setStateText(string text)
@@ -212,8 +213,8 @@ namespace HMonPat
 
         public void Done()
         {
+            CloseSerial();
             calculate();
-
             StateText.Text = "Test done.\n";
             StateText.Text += "VO2: " + VO2.ToString() + " mL/(kg min)";
         }
