@@ -20,7 +20,7 @@ namespace HMonPat
         {
             Debug.WriteLine("Warmup");
             Session.setStateText("Warmup");
-            Session.setResistance(50);          
+            Session.setResistance(50);
             await Task.Delay(120000);
             Fase1();
         }
@@ -30,13 +30,13 @@ namespace HMonPat
             Debug.WriteLine("Fase1");
             Session.setStateText("Fase1");
             Session.askData();
-            await Task.Delay(1400);
+            await Task.Delay(2000);
             Session.setResistance(100);
             await Task.Delay(29000);
             Session.setResistance(125);
             await Task.Delay(29000);
             Session.askData();
-            await Task.Delay(1400);
+            await Task.Delay(2000);
             Session.setResistance(135);
             await Task.Delay(29000);
             Session.setResistance(150);
@@ -91,6 +91,7 @@ namespace HMonPat
                 }
                 else break;
             }
+            Session.askData();
             Cooldown();
             
         }

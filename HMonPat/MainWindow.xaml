@@ -7,7 +7,17 @@
         mc:Ignorable="d"
         Title="Patient Application" Height="810" Width="1200" ResizeMode="NoResize">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="767" VerticalAlignment="Top" Width="1180">
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Create patient" Click="CreatePatientClickEvent"/>
+                    <MenuItem Header="_Patient Login" Click="PatientLoginClickEvent"/>
+                    <MenuItem Header="_Close"/>
+                </MenuItem>
+            </Menu>
+            <StackPanel></StackPanel>
+        </DockPanel>
+        <TabControl HorizontalAlignment="Left" Height="748" VerticalAlignment="Top" Width="1180" Margin="0,19,0,0">
             <TabItem Header="Home">
                 <Grid Margin="-0,-0,-0,-0">
                     <Grid.RowDefinitions>

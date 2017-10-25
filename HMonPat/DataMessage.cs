@@ -20,7 +20,7 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace HMonDoc
+namespace HMonPat
 {
 	public class DataMessage
 	{
@@ -34,12 +34,12 @@ namespace HMonDoc
 		public int Minutes { get; set;}
 		public int Seconds { get; set; }
 		public float Energy { get ; set; }
+        public float VO2 { get; set; }
 
         public string PatientName { get; set; }
         public int PatientAge { get; set; }
         public bool IsFemale { get; set; }
         public int PatientWeight { get; set; }
-
 
 		public List<string> SessionIDs { get; set; }
 

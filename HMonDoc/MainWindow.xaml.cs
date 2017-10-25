@@ -23,6 +23,8 @@ namespace HMonDoc
 
         private string SessionNumber;
         private string PatientNumber;
+        private bool IsFemale;
+
         private int[] time1, time2;
         private ChartValues<double> distance, burned, speed, power;
         private ChartValues<int> pulse, rotations, reachedpower;
@@ -64,7 +66,7 @@ namespace HMonDoc
             this.Age.Text = dp.Data.PatientAge.ToString();
             this.ID.Text = dp.Data.PatientId;
             this.Weight.Text = dp.Data.PatientWeight.ToString();
-
+            this.IsFemale = dp.Data.IsFemale;
             this.getData();
         }
 
@@ -90,6 +92,34 @@ namespace HMonDoc
 
             return many;
         }
+
+        private double calculate(List<DataMessage> data)
+        {
+            double pwr, pulse, vo2;
+
+            pwr = 0.0;
+            pulse = 0.0;
+            for(int idx = 5; idx > 0; idx--)
+            {
+                pwr += data[data.Count - idx].Resistance;
+                pulse += data[data.Count - idx].Pulse;
+            }
+
+            pwr /= 5;
+            pulse /= 5;
+            pwr *= 6.1183;
+
+            if(IsFemale)
+            {
+                vo2 = (1.8 * (pwr / Int32.Parse(Weight.Text)) + 7) * ((147 - Int32.Parse(Age.Text)) / (pulse - 73));
+            } else
+            {
+                vo2 = (1.8 * (pwr / Int32.Parse(Weight.Text)) + 7) * ((137 - Int32.Parse(Age.Text)) / (pulse - 83));
+            }
+
+            return vo2;
+        }
+
         private void getData()
         {
             List<DataMessage> data = this.getAllData();
@@ -128,6 +158,9 @@ namespace HMonDoc
                 SimpleTime time = new SimpleTime(time1[i], time2[i]);
                 Labels[i] = time.ToString();
             }
+
+            VO2.Text = this.calculate(data).ToString();
+
         }
 
         #region Graph stuff
@@ -165,11 +198,12 @@ namespace HMonDoc
                 },
                 new LineSeries
                 {
-                    Title = "Energy (kJ)",
+                    Title = "Energy (W)",
                     Values = new ChartValues<double>{ },
                     PointGeometry = null,
                     LineSmoothness = 0
                 },
+
             };
             DataContext = this;
         }

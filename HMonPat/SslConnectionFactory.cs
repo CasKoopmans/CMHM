@@ -33,7 +33,8 @@ namespace HMonPat
             try
             {
                 stream.AuthenticateAsClient("bietje.net", null, SslProtocols.Ssl3, false);
-            } catch(AuthenticationException ex)
+            }
+            catch (AuthenticationException ex)
             {
                 Console.WriteLine(ex.Message);
                 return null;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO.Ports;
 using System.Net.Security;
 using System.Net.Sockets;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,12 +18,15 @@ namespace HMonPat
         double VO2;
         string name, hometown, id;
         bool isFemale;
+        private Client ServerConnection;
 
         static SerialPort _serialPort;
         private List<Measurement> Measurements;
 
         private TcpClient client;
         private SslStream stream;
+        private string PatientId;
+        private string SessionId;
 
         public MainWindow(TcpClient client, SslStream stream)
         {
@@ -30,6 +34,8 @@ namespace HMonPat
             this.stream = stream;
             InitializeComponent();
             this.DataContext = this;
+            this.ServerConnection = new Client(stream);
+
             age = 20;
             weight = 83;
             name = "Cas";
@@ -76,7 +82,11 @@ namespace HMonPat
                 Int32.TryParse(time[1], out time2);
 
                 Measurements.Add(new Measurement(
-                        pulse, rotations, speed / 10, power, distance, burned, time1, time2, reachedpower
+                        //pulse, 
+                        135,
+                        //rotations, 
+                        55,
+                        speed / 10, power, distance, burned, time1, time2, reachedpower
                     ));
                 Data.Text = Measurements[Measurements.Count - 1].ToString();
             }
@@ -105,6 +115,14 @@ namespace HMonPat
                 Console.WriteLine(exception.StackTrace);
             }
 
+            DataPacket dp = new DataPacket();
+            dp.Data = new DataMessage();
+            dp.CommandCode = DataPacket.CREATE_SESSION;
+            dp.Data.PatientId = this.PatientId;
+            ServerConnection.Write(dp.Serialize());
+            dp = DataPacket.Deserialize(ServerConnection.Read());
+            this.SessionId = dp.SessionId;
+            Console.WriteLine(this.SessionId);
         }
 
         private void StartUp()
@@ -196,10 +214,48 @@ namespace HMonPat
             Measurements.Add(new Measurement(131, 54, 75, 150, 100, 105, 6, 0, 150));
         }
 
+        private void CreatePatientClickEvent(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PatientLoginClickEvent(object sender, RoutedEventArgs e)
+        {
+            PatientLoginWindow window = new PatientLoginWindow();
+            DataPacket dp = new DataPacket();
+
+            window.ShowDialog();
+            if (!window.OK)
+                return;
+
+            dp.CommandCode = DataPacket.GET_PATIENT_INFO;
+            dp.Data = new DataMessage();
+            dp.Data.PatientId = window.PatientId;
+            ServerConnection.Write(dp.Serialize());
+            dp = DataPacket.Deserialize(ServerConnection.Read());
+
+            if (dp.ErrorCode != 0)
+            {
+                return;
+            }
+
+            this.Name.Text = dp.Data.PatientName;
+            this.Age.Text = dp.Data.PatientAge.ToString();
+            this.Sex.Text = dp.Data.IsFemale ? "Female" : "Male";
+            this.Age.Text = dp.Data.PatientAge.ToString();
+            this.ID.Text = dp.Data.PatientId;
+            this.Weight.Text = dp.Data.PatientWeight.ToString();
+            this.PatientId = window.PatientId;
+        }
+
         private void calculate()
         {
-            double averagePower = ((Measurements[Measurements.Count - 5].Power + Measurements[Measurements.Count - 4].Power + Measurements[Measurements.Count - 3].Power + Measurements[Measurements.Count - 2].Power + Measurements[Measurements.Count - 1].Power) / 5) * 6.1183;
-            double averagePulse = (Measurements[Measurements.Count - 5].Pulse + Measurements[Measurements.Count - 4].Pulse + Measurements[Measurements.Count - 3].Pulse + Measurements[Measurements.Count - 2].Pulse + Measurements[Measurements.Count - 1].Pulse) / 5;
+            double averagePower = ((Measurements[Measurements.Count - 5].Power + Measurements[Measurements.Count - 4].Power + 
+                Measurements[Measurements.Count - 3].Power +
+                Measurements[Measurements.Count - 2].Power + Measurements[Measurements.Count - 1].Power) / 5) * 6.1183;
+            double averagePulse = (Measurements[Measurements.Count - 5].Pulse + 
+                Measurements[Measurements.Count - 4].Pulse + Measurements[Measurements.Count - 3].Pulse + 
+                Measurements[Measurements.Count - 2].Pulse + Measurements[Measurements.Count - 1].Pulse) / 5; 
 
             if (isFemale)
             {
@@ -211,12 +267,45 @@ namespace HMonPat
             }
         }
 
+        private void Send()
+        {
+            List<DataPacket> dps = new List<DataPacket>();
+
+            foreach(var measurement in this.Measurements)
+            {
+                DataPacket dp = new DataPacket();
+                dp.Data = new DataMessage();
+
+                dp.CommandCode = DataPacket.STORE;
+                dp.SessionId = this.SessionId;
+                dp.Data.Pulse = measurement.Pulse;
+                dp.Data.Resistance = measurement.Power;
+                dp.Data.PatientId = this.PatientId;
+                dp.Data.Energy = measurement.ReachedPower;
+                dp.Data.Speed = measurement.Speed;
+                dp.Data.Seconds = measurement.Time.Seconds;
+                dp.Data.Minutes = measurement.Time.Minutes;
+                dp.Data.RPM = measurement.Rotations;
+
+                ServerConnection.Write(dp.Serialize());
+            }
+        }
+
         public void Done()
         {
             CloseSerial();
             calculate();
+            this.Send();
+
+
             StateText.Text = "Test done.\n";
+            VO2 = Math.Round(VO2, 2);
             StateText.Text += "VO2: " + VO2.ToString() + " mL/(kg min)";
+        }
+
+        public void Timer(string text)
+        {
+            TimerText.Text = text;
         }
     }
 }

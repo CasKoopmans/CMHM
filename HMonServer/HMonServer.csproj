@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Commands\CommandCreatePatient.cs" />
     <Compile Include="Commands\CommandGetPatientInfo.cs" />
+
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

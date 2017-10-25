@@ -1,5 +1,5 @@
 /*
- *  HMon - DataMessage
+ *  HMon - Network packet
  *  Copyright (C) 2017   Michel Megens <dev@bietje.net>
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -17,34 +17,40 @@
  */
 
 using System;
+using System.IO;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace HMonDoc
+namespace HMonPat
 {
-	public class DataMessage
+	public class DataPacket
 	{
-		public long TimeStamp { get; set; }
-		public string PatientId { get; set; }
-		public int Pulse {get;set;}
-		public int RPM { get; set;}
-		public int BPM { get; set;}
-		public float Speed { get; set; }
-		public float Resistance { get; set; }
-		public int Minutes { get; set;}
-		public int Seconds { get; set; }
-		public float Energy { get ; set; }
+		/*
+		 * Command code constants
+		 */
+		public const int STORE = 1;
+		public const int GET = 2;
+		public const int REPLAY = 3;
+		public const int REPLY = 4;
+		public const int ERROR = 5;
+		public const int STOP = 6;
+		public const int CREATE_SESSION = 7;
+		public const int GET_SESSIONS = 8;
+        public const int CREATE_PATIENT = 9;
+        public const int GET_PATIENT_INFO = 10;
 
-        public string PatientName { get; set; }
-        public int PatientAge { get; set; }
-        public bool IsFemale { get; set; }
-        public int PatientWeight { get; set; }
+		public const int INVALID_REQUEST = 1;
 
+		public int CommandCode { get; set; }
+		public int ErrorCode { get; set; }
+		public string SessionId { get; set; }
+		public DataMessage Data { get; set; }
 
-		public List<string> SessionIDs { get; set; }
+		public const int EOK = 0;
 
-		public DataMessage ()
+		public DataPacket ()
 		{
+			this.ErrorCode = EOK;
 		}
 
 		public string Serialize()
@@ -52,14 +58,14 @@ namespace HMonDoc
 			return JsonConvert.SerializeObject (this);
 		}
 
-		public static string SerializeMany(List<DataMessage> data)
+		public static string SerializeMany(List<DataPacket> data)
 		{
 			return JsonConvert.SerializeObject (data);
 		}
 
-		public static DataMessage Deserialize(string json)
+		public static DataPacket Deserialize(string json)
 		{
-			return JsonConvert.DeserializeObject<DataMessage> (json);
+			return JsonConvert.DeserializeObject<DataPacket> (json);
 		}
 
 		public override string ToString()
