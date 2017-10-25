@@ -17,7 +17,7 @@
  */
 
 using System;
-using System.IO;
+using System.IO; 
 using System.Collections.Generic;
 
 namespace HMonServer
@@ -29,6 +29,9 @@ namespace HMonServer
 			int num;
 
 			dirname += dp.Data.PatientId;
+            if (dp.SessionId != null)
+                dirname += Path.DirectorySeparatorChar + dp.SessionId;
+
 			num = Directory.CreateDirectory (dirname).GetFiles().Length + 1;
 			return dirname + Path.DirectorySeparatorChar + "hmon-data-" + num + ".json";
 		}

@@ -1,2 +1,10 @@
 HMonServer/ssl
 HMonServer/data
+HMonServer/obj
+HMonServer/bin
+HMonDoc/bin
+HMonDoc/obj
+HMonPatient/
+HMonPat/bin
+HMonPat/obj
+packages/

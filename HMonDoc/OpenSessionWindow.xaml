@@ -1,0 +1,18 @@
+﻿<Window x:Class="HMonDoc.OpenSessionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HMonDoc"
+        mc:Ignorable="d"
+        Title="OpenSessionWindow" Height="300" Width="300">
+    <Grid>
+        <Button Content="OK" Click="OkClickEvent" HorizontalAlignment="Left" Margin="53,179,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Cancel" Click="CancelClickEvent" HorizontalAlignment="Left" Margin="166,179,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Patient number:" HorizontalAlignment="Left" Margin="53,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Session number:" HorizontalAlignment="Left" Margin="53,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.246,1.227"/>
+        <TextBox Name="SessionNumberBox" FontSize="17" HorizontalAlignment="Left" Height="23" Margin="53,112,0,0" TextWrapping="Wrap" Text="1e7ac1b4-feef-40ec-aed5-2c94016dcafe" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.047,0.121"/>
+        <TextBox Name="PatientNumberBox" FontSize="17" HorizontalAlignment="Left" Height="23" Margin="53,41,0,0" TextWrapping="Wrap" Text="abcd-1234" VerticalAlignment="Top" Width="180"/>
+
+    </Grid>
+</Window>

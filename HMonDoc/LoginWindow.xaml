@@ -10,7 +10,9 @@
     <Window.Resources>
         <conv:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </Window.Resources>
+    
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="125"/>
@@ -32,13 +34,14 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Text="Host name:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"/>
-            <TextBox Name="Hostname" Width="150" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2"/>
+            <TextBox Name="Hostname" Width="150" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="2" FontSize="18" Text="localhost" />
 
             <TextBlock Text="Port number:" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1"/>
-            <TextBox Name="Portnumber" Width="150" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2"/>
+            <TextBox Name="Portnumber" Width="150" Height="25" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2" FontSize="18" Text="7100"/>
 
         </Grid>
-        <Button Name="LoginButton" Width="150" Height="50" HorizontalAlignment="Center" FontSize="20" Content="Login" Click="LoginButton_Click" Grid.Row="2"/>
+        <Button Name="LoginButton" Width="130" Height="30" HorizontalAlignment="Center" FontSize="20" Content="Login" Click="LoginButton_Click" Grid.Row="2"/>
         <TextBlock Name="ErrorMessage" HorizontalAlignment="Center" Grid.Row="3" FontSize="12" Foreground="Red" Margin="5,5,5,5"/>
+        <TextBlock Name="Status" HorizontalAlignment="Left" FontSize="18" Margin="70,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="383" Height="56" Grid.RowSpan="2"/>
     </Grid>
 </Window>

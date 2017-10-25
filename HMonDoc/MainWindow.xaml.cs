@@ -2,10 +2,14 @@
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Windows;
+using System.Collections.Generic;
+using System.IO;
 using System.Windows.Media;
 using LiveCharts;
 using LiveCharts.Wpf;
 using System.Collections;
+using HMonServer;
+using System.ComponentModel;
 
 namespace HMonDoc
 {
@@ -17,40 +21,113 @@ namespace HMonDoc
         private TcpClient client;
         private SslStream stream;
 
+        private string SessionNumber;
+        private string PatientNumber;
         private int[] time1, time2;
-        private ChartValues<double> distance, burned;
-        private ChartValues<int> pulse, rotations, speed, power, reachedpower;
-        string[] tstamps;
+        private ChartValues<double> distance, burned, speed, power;
+        private ChartValues<int> pulse, rotations, reachedpower;
+        private string[] tstamps;
+        private AbstractClient ServerConnection;
 
         public MainWindow(TcpClient client, SslStream stream)
         {
             this.client = client;
             this.stream = stream;
             InitializeComponent();
+            this.ServerConnection = new Client(stream);
             this.DataContext = this;
-            getData();
-            Graph();
+            this.Graph();
         }
 
+        private void OpenClickEvent(object sender, EventArgs args)
+        {
+            OpenSessionWindow osw;
+            DataPacket dp;
+
+            osw = new OpenSessionWindow();
+            osw.ShowDialog();
+
+            if (!osw.OkClicked)
+                return;
+
+            this.PatientNumber = osw.PatientNumber;
+            this.SessionNumber = osw.SessionNumber;
+            dp = new DataPacket();
+            dp.CommandCode = 10;
+            dp.Data = new DataMessage();
+            dp.Data.PatientId = osw.PatientNumber;
+            ServerConnection.Write(dp.ToString());
+            dp = DataPacket.Deserialize(ServerConnection.Read());
+            this.Name.Text = dp.Data.PatientName;
+            this.Age.Text = dp.Data.PatientAge.ToString();
+            this.Sex.Text = dp.Data.IsFemale ? "Female" : "Male";
+            this.Age.Text = dp.Data.PatientAge.ToString();
+            this.ID.Text = dp.Data.PatientId;
+            this.Weight.Text = dp.Data.PatientWeight.ToString();
+
+            this.getData();
+        }
+
+        private List<DataMessage> getAllData()
+        {
+            DataPacket dp;
+            string raw;
+
+            dp = new DataPacket();
+            dp.Data = new DataMessage();
+            dp.SessionId = this.SessionNumber;
+            dp.Data.PatientId = this.PatientNumber;
+            dp.CommandCode = 2;
+
+            ServerConnection.Write(dp.Serialize());
+            raw = ServerConnection.Read();
+            List<DataMessage> many = DataPacket.DeserializeMany(raw);
+            foreach(var x in many)
+            {
+                Console.Write("Data: ");
+                Console.Write(x.Minutes + ":" + x.Seconds + "\n");
+            }
+
+            return many;
+        }
         private void getData()
         {
-            time1 = new int[] { 00, 00, 00, 00, 00, 00, 01, 01, 01 };
-            time2 = new int[] { 00, 10, 20, 30, 40, 50, 00, 10, 20 };
+            List<DataMessage> data = this.getAllData();
+            time1 = new int[data.Count];
+            time2 = new int[data.Count];
+            /*pulse = new ChartValues<int>();
+            rotations = new ChartValues<int>();
+            speed = new ChartValues<double>();
+            power = new ChartValues<double>();
+            reachedpower = new ChartValues<int>();
+            distance = new ChartValues<double>();
+            burned = new ChartValues<double>();*/
             tstamps = new string[time1.Length];
 
+            SeriesCollection[0].Values.Clear();
+            SeriesCollection[1].Values.Clear();
+            SeriesCollection[2].Values.Clear();
+            SeriesCollection[3].Values.Clear();
+            SeriesCollection[4].Values.Clear();
+
+            int idx = 0;
+            foreach(var x in data) {
+                time1[idx] = x.Minutes;
+                time2[idx] = x.Seconds;
+                SeriesCollection[0].Values.Add(x.Pulse);
+                SeriesCollection[1].Values.Add(x.RPM);
+                SeriesCollection[2].Values.Add((double)x.Speed);
+                SeriesCollection[3].Values.Add((double)x.Energy);
+                SeriesCollection[4 ].Values.Add((double)x.Resistance);
+                idx++;
+            }
+
+            this.Labels = new string[data.Count];
             for(int i = 0; i < time1.Length; i++)
             {
                 SimpleTime time = new SimpleTime(time1[i], time2[i]);
-                tstamps[i] = time.ToString();
+                Labels[i] = time.ToString();
             }
-            
-            pulse = new ChartValues<int>{ 100, 103, 105, 108, 115, 116, 120, 130, 132 };
-            rotations = new ChartValues<int> { 70, 68, 70, 72, 79, 78, 73, 74, 75 };
-            speed = new ChartValues<int> { 30, 30, 30, 30, 30, 30, 30, 30, 30 };
-            power = new ChartValues<int> { 50, 50, 50, 50, 50, 50, 50, 50, 50 };
-            reachedpower = new ChartValues<int> { 40, 40, 40, 40, 40, 40, 40, 40, 40 };
-            distance = new ChartValues<double> { 10, 20, 30, 40, 50, 60, 70, 80, 90 };
-            burned = new ChartValues<double> { 20, 30, 40, 50, 60, 70, 80, 90, 99 };
         }
 
         #region Graph stuff
@@ -61,55 +138,39 @@ namespace HMonDoc
                 new LineSeries
                 {
                     Title = "Heartrate (BPM)",
-                    Values = pulse,
+                    Values = new ChartValues<int>{ },
                     PointGeometry = null,
                     LineSmoothness = 0
                 },
                 new LineSeries
                 {
                     Title = "RPM",
-                    Values = rotations,
+                    Values = new ChartValues<int>{ },
                     PointGeometry = null,
                     LineSmoothness = 0
                 },
                 new LineSeries
                 {
                     Title = "Speed (km/h)",
-                    Values = speed,
-                    PointGeometry = null,
-                    LineSmoothness = 0
-                },
-                new LineSeries
-                {
-                    Title = "Distance (km)",
-                    Values = distance,
+                    Values = new ChartValues<double>{ },
                     PointGeometry = null,
                     LineSmoothness = 0
                 },
                 new LineSeries
                 {
                     Title = "Resistance",
-                    Values = power,
+                    Values = new ChartValues<double>{ },
                     PointGeometry = null,
                     LineSmoothness = 0
                 },
                 new LineSeries
                 {
                     Title = "Energy (kJ)",
-                    Values = burned,
+                    Values = new ChartValues<double>{ },
                     PointGeometry = null,
                     LineSmoothness = 0
                 },
-                new LineSeries
-                {
-                    Title = "Energy (W)",
-                    Values = reachedpower,
-                    PointGeometry = null,
-                    LineSmoothness = 0
-                }
             };
-            
-            Labels = tstamps;
             DataContext = this;
         }
 

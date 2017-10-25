@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Security;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -54,11 +55,21 @@ namespace HMonDoc
             TcpClient client;
             SslStream stream;
 
-            //client = SslConnectionFactory.CreateTcpClient(Hostname.Text, Int32.Parse(Portnumber.Text));
-            //stream = SslConnectionFactory.CreateFromClient(client);
-            //this.IsLoggedIn = true;
-            new MainWindow(null, null).Show();
-            this.Close();
+            try
+            {
+                string host = Regex.Replace(this.Hostname.Text, @"\t|\n|\r", "");
+                string port = Regex.Replace(this.Portnumber.Text, @"\t|\n|\r", "");
+                client = SslConnectionFactory.CreateTcpClient(host, Int32.Parse(port));
+                stream = SslConnectionFactory.CreateFromClient(client);
+                this.IsLoggedIn = true;
+                new MainWindow(client, stream).Show();
+                this.Close();
+            } catch(Exception ex)
+            {
+                this.Status.Text = ex.Message;
+            }
+            
+
         }
     }
 }

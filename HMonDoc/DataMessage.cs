@@ -20,7 +20,7 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace HMonServer
+namespace HMonDoc
 {
 	public class DataMessage
 	{

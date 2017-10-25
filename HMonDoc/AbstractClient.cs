@@ -24,7 +24,7 @@ using System.Net.Security;
 
 namespace HMonServer
 {
-	public abstract class AbstractClient : IClient
+	public abstract class AbstractClient
 	{
 		protected SslStream Stream { get; set; }
 		protected StreamReader Reader { get; set; }
@@ -72,9 +72,9 @@ namespace HMonServer
                     if (builder.ToString().Contains("<EOF>"))
                         break;
                 }
-            } catch(IOException ex)
+            } catch(IOException)
             {
-                throw new StopRequestException();
+                throw new IOException();
             }
 
 			return builder.ToString ().Replace ("<EOF>", "");

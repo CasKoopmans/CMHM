@@ -27,6 +27,7 @@ using System.Threading.Tasks;
 using System.Collections.Concurrent;
 
 using Newtonsoft.Json;
+using HMonServer.Commands;
 
 namespace HMonServer
 {
@@ -46,6 +47,8 @@ namespace HMonServer
 			this.Commands [DataPacket.REPLAY] = new CommandReplay (MainWindow.Instance.DataDirectory);
 			this.Commands [DataPacket.CREATE_SESSION] = new CommandCreateSession (MainWindow.Instance.DataDirectory);
 			this.Commands [DataPacket.GET_SESSIONS] = new CommandGetSessions (MainWindow.Instance.DataDirectory);
+            this.Commands [DataPacket.CREATE_PATIENT] = new CommandCreatePatient(MainWindow.Instance.DataDirectory);
+            this.Commands[DataPacket.GET_PATIENT_INFO] = new CommandGetPatientInfo(MainWindow.Instance.DataDirectory);
 		}
 
 		public static HMonServer Instance
@@ -117,8 +120,15 @@ namespace HMonServer
 				} catch(StopRequestException) {
 					client.Close ();
 					stream.Close ();
+                    MainWindow.Instance.AppendToStatus("Client disconnecting..");
 					return;
-				}
+				} catch(NullReferenceException)
+                {
+                    client.Close();
+                    stream.Close();
+                    MainWindow.Instance.AppendToStatus("Client exit (1)");
+                    return;
+                }
 			}
 		}
 

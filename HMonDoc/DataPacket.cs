@@ -21,7 +21,7 @@ using System.IO;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace HMonServer
+namespace HMonDoc
 {
 	public class DataPacket
 	{
@@ -68,10 +68,14 @@ namespace HMonServer
 			return JsonConvert.DeserializeObject<DataPacket> (json);
 		}
 
+        public static List<DataMessage> DeserializeMany(string data)
+        {
+            return JsonConvert.DeserializeObject<List<DataMessage>>(data);
+        }
+
 		public override string ToString()
 		{
 			return this.Serialize ();
 		}
 	}
 }
-

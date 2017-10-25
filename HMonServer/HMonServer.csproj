@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -44,9 +44,15 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainWindow.cs" />
+    <Compile Include="Commands\CommandCreatePatient.cs" />
+    <Compile Include="Commands\CommandGetPatientInfo.cs" />
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="MainWindow.Assembly.cs" />
+    <Compile Include="MainWindow.Assembly.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HMonServer.cs" />
     <Compile Include="SSLServer.cs" />
     <Compile Include="AbstractClient.cs" />
@@ -67,7 +73,5 @@
     <Compile Include="Commands\CommandGetSessions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Commands\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

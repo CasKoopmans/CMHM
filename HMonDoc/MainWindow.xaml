@@ -8,7 +8,16 @@
         mc:Ignorable="d"
         Title="Doctor Application" Height="810" Width="1200" ResizeMode="NoResize">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="767" VerticalAlignment="Top" Width="1180">
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Open session" Click="OpenClickEvent"/>
+                    <MenuItem Header="_Close"/>
+                </MenuItem>
+            </Menu>
+            <StackPanel></StackPanel>
+        </DockPanel>
+        <TabControl HorizontalAlignment="Left" Height="747" VerticalAlignment="Top" Width="1180" Margin="0,20,0,0">
             <TabItem Header="Home">
                 <Grid Margin="-0,-0,-0,-0">
                     <Grid.RowDefinitions>
@@ -20,23 +29,25 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="57.5"/>
+                        <ColumnDefinition Width="8.5"/>
+                        <ColumnDefinition Width="23.5"/>
                         <ColumnDefinition Width="150"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="Name:" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"/>
-                    <TextBlock Text="Age:" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
-                    <TextBlock Text="Sex:" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"/>
-                    <TextBlock Text="Home town:" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center"/>
-                    <TextBlock Text="ID:" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center"/>
+                    <TextBlock Text="Name:" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="0,5"/>
+                    <TextBlock Text="Age:" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="0,5"/>
+                    <TextBlock Text="Sex:" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="0,5"/>
+                    <TextBlock Text="Weight (kg):" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="0,5"/>
+                    <TextBlock Text="ID:" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="0,5"/>
 
-                    <TextBlock Name="Name" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center"/>
-                    <TextBlock Name="Age" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center"/>
-                    <TextBlock Name="Sex" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center"/>
-                    <TextBlock Name="HomeTown" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center"/>
-                    <TextBlock Name="ID" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center"/>
-                    <Button Content="text" Width="200" Height="150" Click="Button_Click"/>
+                    <TextBlock Name="Name" Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" Margin="0,5"/>
+                    <TextBlock Name="Age" Grid.Column="4" Grid.Row="1" VerticalAlignment="Center" Margin="0,5"/>
+                    <TextBlock Name="Sex" Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" Margin="0,5"/>
+                    <TextBlock Name="Weight" Grid.Column="4" Grid.Row="3" VerticalAlignment="Center" Margin="0,5"/>
+                    <TextBlock Name="ID" Grid.Column="4" Grid.Row="4" VerticalAlignment="Center" Margin="0,5"/>
+
                 </Grid>
             </TabItem>
             <TabItem Header="Session">
