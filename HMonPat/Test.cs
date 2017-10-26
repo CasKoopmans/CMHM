@@ -32,7 +32,7 @@ namespace HMonPat
             Session.setStateText("Warmup");
             Session.setResistance(50);
             await Task.Delay(120000);
-
+            
             t.Stop();
             Fase1();
         }
@@ -90,9 +90,9 @@ namespace HMonPat
             Session.setStateText("Fase2");
             while (true)
             {
-                feedback = "";
                 if (sessioncount < 8)
                 {
+                    Session.setFeedbackText("");
                     Session.askData();
                     await Task.Delay(1000);
                     if(pastPulse == 0) { pastPulse = Session.getLastPulse(); }
@@ -122,11 +122,11 @@ namespace HMonPat
                         failed = true;
                     }
                     sessioncount++;
+                    pastPulse = Session.getLastPulse();
                     if (failed){
                         Failed();
                         return;
                     }
-                    pastPulse = Session.getLastPulse();
                     await Task.Delay(13000);
                 }
                 else break;

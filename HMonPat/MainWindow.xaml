@@ -111,6 +111,7 @@
                         <TextBlock Name="TimeBox" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0"/>
                         <TextBlock Name="StateText" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,50,10" Grid.Row="1"/>
                         <TextBlock Name="Feedback" FontSize="34" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,50,10" Grid.Row="2"/>
+
                     </Grid>
                 </Grid>
             </TabItem>

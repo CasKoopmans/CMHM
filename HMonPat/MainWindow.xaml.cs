@@ -107,7 +107,6 @@ namespace HMonPat
             dp = DataPacket.Deserialize(ServerConnection.Read());
             this.SessionId = dp.SessionId;
             this.SessionID.Text = this.SessionId;
-
         }
 
         private void StartUp()
@@ -139,7 +138,11 @@ namespace HMonPat
 
         public void SetTimeBox(string time)
         {
-            this.TimeBox.Text = time;
+            if(!Dispatcher.CheckAccess())
+            {
+                this.TimeBox.Dispatcher.BeginInvoke((Action)(() => this.TimeBox.Text = time));
+            }
+
         }
 
         public int getLastPulse()
