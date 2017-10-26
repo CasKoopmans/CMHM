@@ -304,10 +304,9 @@ namespace HMonPat
             calculate();
             this.Send();
 
-
-            StateText.Text = "Test done.\n";
+            SetTimeBox("");
+            StateText.Text = "Test done.";
             VO2 = Math.Round(VO2, 2);
-            StateText.Text += "VO2: " + VO2.ToString() + " mL/(kg min)";
         }
     }
 }
