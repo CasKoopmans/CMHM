@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace HMonPat
 {
@@ -7,8 +8,9 @@ namespace HMonPat
     {
         int sessioncount = 0, maxHR, pastPulse = 0;
         bool failed = false;
-        MainWindow Session;
+        private static MainWindow Session;
         string feedback = "";
+        private static int timer = 0;
 
         public Test(MainWindow session)
         {
@@ -18,15 +20,33 @@ namespace HMonPat
 
         private async void Warmup()
         {
+            Timer t = new Timer();
+
+            Session.SetTimeBox("02:00");
+            Test.timer = 120;
+            t.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            t.Interval = 1000;
+            t.Enabled = true;
+
             Debug.WriteLine("Warmup");
             Session.setStateText("Warmup");
             Session.setResistance(50);
             await Task.Delay(120000);
+
+            t.Stop();
             Fase1();
         }
 
         private async void Fase1()
         {
+            Timer t = new Timer();
+
+            Session.SetTimeBox("02:00");
+            Test.timer = 120;
+            t.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            t.Interval = 1000;
+            t.Enabled = true;
+
             Debug.WriteLine("Fase1");
             Session.setStateText("Fase1");
             Session.askData();
@@ -41,11 +61,31 @@ namespace HMonPat
             await Task.Delay(29000);
             Session.setResistance(150);
             await Task.Delay(29000);
+
+            t.Stop();
             Fase2();
+        }
+
+        private static void OnTimedEvent(object src, ElapsedEventArgs e)
+        {
+            int minutes, seconds;
+
+            timer -= 1;
+            minutes = timer / 60;
+            seconds = timer % 60;
+            Session.SetTimeBox(new SimpleTime(minutes, seconds).ToString());
         }
 
         private async void Fase2()
         {
+            Timer t = new Timer();
+
+            Session.SetTimeBox("02:00");
+            Test.timer = 120;
+            t.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            t.Interval = 1000;
+            t.Enabled = true;
+
             Debug.WriteLine("Fase2");
             Session.setStateText("Fase2");
             while (true)
@@ -91,6 +131,7 @@ namespace HMonPat
                 }
                 else break;
             }
+            t.Stop();
             Session.askData();
             Cooldown();
             
@@ -103,10 +144,20 @@ namespace HMonPat
 
         private async void Cooldown()
         {
+            Timer t = new Timer();
+
+            Session.SetTimeBox("01:00");
+            Test.timer = 60;
+            t.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            t.Interval = 1000;
+            t.Enabled = true;
+
             Debug.WriteLine("Cooldown");
             Session.setStateText("Cooldown");
             Session.setResistance(50);
             await Task.Delay(60000);
+
+            t.Stop();
             Done();
         }
 
@@ -117,6 +168,8 @@ namespace HMonPat
             Session.setFeedbackText(feedback);
             sessioncount = 0;
             failed = false;
+            timer = 120;
+            Session.SetTimeBox("02:00");
             Fase2();
         }
 

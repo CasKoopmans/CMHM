@@ -117,9 +117,10 @@ namespace HMonServer
 					data.ErrorCode = DataPacket.INVALID_REQUEST;
 					client.Write (data.Serialize ());
 					continue;
-				} catch(StopRequestException) {
+				} catch(StopRequestException ex) {
 					client.Close ();
 					stream.Close ();
+                    MainWindow.Instance.AppendToStatus(ex.Message);
                     MainWindow.Instance.AppendToStatus("Client disconnecting..");
 					return;
 				} catch(NullReferenceException)

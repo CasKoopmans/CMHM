@@ -18,8 +18,11 @@ namespace HMonServer.Commands
 
         public override void Execute(IClient client, DataPacket packet)
         {
+            string dirname = this.DataDirectory + Path.DirectorySeparatorChar + packet.Data.PatientId;
             string fname = this.DataDirectory + Path.DirectorySeparatorChar +
                 packet.Data.PatientId + Path.DirectorySeparatorChar + "patient.json";
+
+            Directory.CreateDirectory(dirname);
             File.WriteAllText(fname, packet.Data.ToString());
         }
     }

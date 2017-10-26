@@ -1,4 +1,3 @@
-C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\hmon-master-fb5e1e4bd7e2ced66fdfd3acb66fe31472c0f05b\HMonPat\bin\Debug\HMonPat.exe.config
 C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPat\bin\Debug\HMonPat.exe.config
 C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPat\bin\Debug\HMonPat.exe
 C:\Users\Cas\Desktop\School\Jaar 2 Poging 2\Periode 1\Proftaak individueel\CMHM\HMonPat\bin\Debug\HMonPat.pdb

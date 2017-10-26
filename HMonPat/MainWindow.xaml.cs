@@ -36,20 +36,6 @@ namespace HMonPat
             this.DataContext = this;
             this.ServerConnection = new Client(stream);
 
-            age = 20;
-            weight = 83;
-            name = "Cas";
-            hometown = "Tilburg";
-            isFemale = false;
-            id = "AD1234";
-
-            Age.Text = age.ToString();
-            Name.Text = name;
-            HomeTown.Text = hometown;
-            if (isFemale) { Sex.Text = "Female"; } else { Sex.Text = "Male"; }
-            ID.Text = id;
-            Weight.Text = weight.ToString() + " kg";
-
             if(age < 25) { maxHF = 210; }
             else if (age < 35) { maxHF = 200; }
             else if (age < 40) { maxHF = 190; }
@@ -84,9 +70,7 @@ namespace HMonPat
                 Measurements.Add(new Measurement(
                         //pulse, 
                         135,
-                        //rotations, 
-                        55,
-                        speed / 10, power, distance, burned, time1, time2, reachedpower
+                        rotations, speed / 10, power, distance, burned, time1, time2, reachedpower
                     ));
                 Data.Text = Measurements[Measurements.Count - 1].ToString();
             }
@@ -122,7 +106,8 @@ namespace HMonPat
             ServerConnection.Write(dp.Serialize());
             dp = DataPacket.Deserialize(ServerConnection.Read());
             this.SessionId = dp.SessionId;
-            Console.WriteLine(this.SessionId);
+            this.SessionID.Text = this.SessionId;
+
         }
 
         private void StartUp()
@@ -150,6 +135,11 @@ namespace HMonPat
                 Read(response);
             }
             catch (Exception ex) { }
+        }
+
+        public void SetTimeBox(string time)
+        {
+            this.TimeBox.Text = time;
         }
 
         public int getLastPulse()
@@ -216,7 +206,21 @@ namespace HMonPat
 
         private void CreatePatientClickEvent(object sender, RoutedEventArgs e)
         {
+            CreatePatientWindow window = new CreatePatientWindow();
+            DataPacket dp;
+            DataMessage dm;
 
+            window.ShowDialog();
+            dp = new DataPacket();
+            dm = new DataMessage();
+
+            dp.CommandCode = DataPacket.CREATE_PATIENT;
+            dm.PatientId = window.id;
+            dm.PatientAge = Int32.Parse(window.age);
+            dm.PatientName = window.name;
+            dm.PatientWeight = Int32.Parse(window.weight);
+            dp.Data = dm;
+            ServerConnection.Write(dp.Serialize());
         }
 
         private void PatientLoginClickEvent(object sender, RoutedEventArgs e)
@@ -301,11 +305,6 @@ namespace HMonPat
             StateText.Text = "Test done.\n";
             VO2 = Math.Round(VO2, 2);
             StateText.Text += "VO2: " + VO2.ToString() + " mL/(kg min)";
-        }
-
-        public void Timer(string text)
-        {
-            TimerText.Text = text;
         }
     }
 }

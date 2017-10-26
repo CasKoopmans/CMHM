@@ -6,6 +6,40 @@
         xmlns:local="clr-namespace:HMonPat"
         mc:Ignorable="d"
         Title="Patient Application" Height="810" Width="1200" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#373737" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Path x:Name="PathIcon" Width="15" Height="25" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="17,0,0,0" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+                            <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#E59400" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter TargetName="PathIcon" Property="Fill" Value="Black" />
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="OrangeRed" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
@@ -31,23 +65,23 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10"/>
                         <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="150"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text="Name:" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"/>
-                    <TextBlock Text="Age:" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
-                    <TextBlock Text="Sex:" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"/>
-                    <TextBlock Text="Weight:" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center"/>
-                    <TextBlock Text="Home town:" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center"/>
-                    <TextBlock Text="ID:" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center"/>
+                    <TextBlock Text="Name:" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Height="16" Margin="0,5"/>
+                    <TextBlock Text="Age:" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Height="16" Margin="0,5"/>
+                    <TextBlock Text="Sex:" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Height="16" Margin="0,5"/>
+                    <TextBlock Text="Weight:" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Height="16" Margin="0,5"/>
+                    <TextBlock Text="ID:" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" Height="16" Margin="0,5"/>
+                    <TextBlock Text="Session ID:" Grid.Column="1" Grid.Row="5" VerticalAlignment="Center" Height="16" Margin="0,5"/>
 
-                    <TextBlock Name="Name" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center"/>
-                    <TextBlock Name="Age" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center"/>
-                    <TextBlock Name="Sex" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center"/>
-                    <TextBlock Name="Weight" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center"/>
-                    <TextBlock Name="HomeTown" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center"/>
-                    <TextBlock Name="ID" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center"/>
+                    <TextBlock Name="Name" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Height="16" Margin="0,5"/>
+                    <TextBlock Name="Age" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" Height="16" Margin="0,5"/>
+                    <TextBlock Name="Sex" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Height="16" Margin="0,5"/>
+                    <TextBlock Name="Weight" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" Height="16" Margin="0,5"/>
+                    <TextBlock Name="ID" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" Height="16" Margin="0,5"/>
+                    <TextBlock Name="SessionID" Text="No session started" Grid.Column="2" Grid.Row="5" VerticalAlignment="Center" Height="16" Margin="0,5"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Session">
@@ -62,11 +96,21 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Button Name="ConnectButton" Height="95" Width="190" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="0" Content="Start" Click="ConnectButton_Click"/>
-                        <TextBlock Name="StateText" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,50,10" Grid.Row="0"/>
-                        <TextBlock Name="Feedback" FontSize="34" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,50,10" Grid.Row="1"/>
+
+                        <Button Name="ConnectButton" Width="200" Height="50" VerticalAlignment="Top" Margin="0,20,0,0" Click="ConnectButton_Click" Grid.Row="1">
+                            <Button.Content>
+                                <StackPanel>
+                                    <TextBlock Text="Start session" FontSize="20" />
+                                    <TextBlock Text="Astrand test" FontSize="12" Foreground="Gainsboro" />
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                        <TextBlock Name="TimeBox" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0"/>
+                        <TextBlock Name="StateText" FontSize="38" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,10,50,10" Grid.Row="1"/>
+                        <TextBlock Name="Feedback" FontSize="34" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,50,10" Grid.Row="2"/>
                     </Grid>
                 </Grid>
             </TabItem>

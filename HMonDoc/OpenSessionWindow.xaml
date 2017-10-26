@@ -11,7 +11,7 @@
         <Button Content="Cancel" Click="CancelClickEvent" HorizontalAlignment="Left" Margin="166,179,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="Patient number:" HorizontalAlignment="Left" Margin="53,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Session number:" HorizontalAlignment="Left" Margin="53,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.246,1.227"/>
-        <TextBox Name="SessionNumberBox" FontSize="17" HorizontalAlignment="Left" Height="23" Margin="53,112,0,0" TextWrapping="Wrap" Text="1e7ac1b4-feef-40ec-aed5-2c94016dcafe" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.047,0.121"/>
+        <TextBox Name="SessionNumberBox" FontSize="17" HorizontalAlignment="Left" Height="52" Margin="53,112,0,0" TextWrapping="Wrap" Text="1e7ac1b4-feef-40ec-aed5-2c94016dcafe" VerticalAlignment="Top" Width="188" RenderTransformOrigin="0.047,0.121"/>
         <TextBox Name="PatientNumberBox" FontSize="17" HorizontalAlignment="Left" Height="23" Margin="53,41,0,0" TextWrapping="Wrap" Text="abcd-1234" VerticalAlignment="Top" Width="180"/>
 
     </Grid>

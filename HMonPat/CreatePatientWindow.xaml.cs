@@ -43,6 +43,8 @@ namespace HMonPat
                 weight = PatientWeight.Text;
                 id = PatientID.Text;
             }
+
+            this.Close();
         }
     }
 }
